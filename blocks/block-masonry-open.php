@@ -1,0 +1,1 @@
+<div class="masonry-wrapper" data-masonry='{"percentPosition": true }' <?php if ( get_field( 'class' ) ) : echo 'class="' . get_field( 'class' ) . '"'; endif; ?>>

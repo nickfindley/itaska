@@ -1,0 +1,18 @@
+div.search-form {
+    @include make-row;
+    justify-content: center;
+    margin-bottom: 4rem;
+
+    form {
+        @include make-col-ready;
+        @include make-col(6);;
+    }
+}
+
+.search-field {
+    @extend .form-control-lg;
+}
+
+.relevanssi-query-term {
+    @include bold;
+}

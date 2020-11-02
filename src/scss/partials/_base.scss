@@ -1,0 +1,80 @@
+html {
+    margin-top: 0 !important;
+}
+
+#wpadminbar {
+    display: none;
+}
+
+body {
+    overflow-x: hidden;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    position: relative;
+}
+
+.site-wrapper {
+    overflow-x: hidden;
+}
+
+.container {
+    @include make-container();
+
+    @include media-breakpoint-up(sm) {
+        .container {
+            max-width: $container-sm-width;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .container {
+            max-width: $container-md-width;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .container {
+            max-width: $container-lg-width;
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .container {
+            max-width: $container-xl-width;
+        }
+    }
+}
+
+.row {
+    @include make-row();
+}
+
+hr {
+    margin: $paragraph-margin-bottom 0;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+dl,
+ol,
+ul,
+address {
+    margin-bottom: $paragraph-margin-bottom;
+}
+
+blockquote {
+    border-left: .5rem solid $primary;
+    color: rgba(black, .875);
+    padding: 0 1.5rem 0 1rem;
+
+    @include media-breakpoint-up(md) {
+        border-left: 1rem solid $primary;
+        padding: 0 2.5rem 0 1.5rem;
+    }
+}

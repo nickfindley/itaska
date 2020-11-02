@@ -1,0 +1,18 @@
+.alert-message,
+.broadcast {
+    background-color: $primary;
+    border: 0;
+    border-radius: 0;
+    box-shadow: $box-shadow-light;
+    color: rgba($black, .875);
+    margin: $paragraph-margin-bottom auto;
+    padding: 1rem;
+
+    @include media-breakpoint-up(sm) {
+        margin: $paragraph-margin-bottom -1rem;
+    }
+}
+
+.broadcast a {
+    font-weight: 700;
+}
