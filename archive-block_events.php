@@ -42,7 +42,20 @@ get_header(); ?>
                     $block_event_query->the_post();
                     get_template_part( 'content/archive-block-event' );
                 endwhile;
-            endif;
+            else :
+            ?>
+                <article>
+                    <div class="item-container container">
+                        <header class="item-header">
+                            <h2>Upcoming Events</h2>
+                        </header>
+                        <section class="item-content">
+                            <p>There are no events scheduled at this time.</p>
+                        </section>
+                    </div>
+                </article>
+            <?php
+                endif;
 			?>
 			</section>
 			<section class="archive-time-list">
@@ -80,7 +93,9 @@ get_header(); ?>
     </div>
 	<div class="main-footer-container container">
         <footer class="main-footer">
-            <?php if ( function_exists('yoast_breadcrumb') ) : ?><p class="post-breadcrumbs"><?php yoast_breadcrumb(); ?></p><?php elseif ( function_exists( 'bcn_display' ) ) : ?><p class="post-breadcrumbs"><?php bcn_display(); ?></p><?php endif;?>
+            <?php if ( function_exists('yoast_breadcrumb') ) : ?>
+            <p class="post-breadcrumbs"><?php yoast_breadcrumb(); ?></p>
+            <?php endif;?>
         </footer>
     </div>
 </main>

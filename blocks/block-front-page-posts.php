@@ -25,12 +25,14 @@ $number = get_field( 'number_of_posts' );
 ?>
 
 <header class="front-page-posts-title">
-    <h2>
-        <a href="<?php echo $url; ?>"><?php echo $title; ?></a>
-        <span class="subtitle">Find more news at <a href="/news/">dutchtownstl.org/news</a></span>
-    </h2>
+    <div class="col">
+        <h2>
+            <a href="<?php echo $url; ?>"><?php echo $title; ?></a>
+        </h2>
+        <h3><?php the_field( 'body' ); ?><h3>
+    </div>
 </header>
-<div data-masonry='{"percentPosition": true }' class="front-page-posts<?php if ( get_field( 'class' ) ) : echo ' ' . get_field( 'class' ); endif; ?>">
+<div class="masonry-container front-page-posts<?php if ( get_field( 'class' ) ) : echo ' ' . get_field( 'class' ); endif; ?>">
 <?php
     $args = array(
         'posts_per_page' => $number,

@@ -39,10 +39,10 @@ if ( get_field( 'dutchtown_cid' ) || get_field( 'cherokee_street' ) || ( get_fie
 <div class="place-banner">
     <div class="place-banner-container">
         <?php if ( get_field( 'dutchtown_cid' ) ) : ?>
-        <p><i class="fas fa-fw fa-city"></i> Located in the <a href="http://dtcid.org/">Dutchtown CID</a></p>
+        <p><i class="fas fa-fw fa-city"></i> Located in the <a href="https://www.dutchtownstl.org/cid/">Dutchtown CID</a></p>
         <?php endif; ?>
         <?php if ( get_field( 'cherokee_street' ) ) : ?>
-        <p><i class="fas fa-fw fa-sun"></i> In the <a href="https://www.facebook.com/cherokeestreetofficial/">Cherokee Street</a> Business District</p>
+        <p><i class="fas fa-fw fa-sun"></i> In the <a href="https://cherokeestreet.com/">Cherokee Street</a> Business District</p>
         <?php endif; ?>
         <?php if ( get_field( 'dutchtown_passport' ) ) : if ( $today >= $start_date && $today <= $end_date ) : ?>
         <p><i class="fas fa-fw fa-passport"></i> Participating <a href="/passport/">Dutchtown Passport</a> location</p>

@@ -1,1 +1,0 @@
-<div class="cards-wrapper"<?php if ( get_field( 'class' ) ) : echo 'class="' . get_field( 'class' ) . '"'; endif; ?>>

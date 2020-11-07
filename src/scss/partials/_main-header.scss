@@ -30,7 +30,12 @@
     }
 
     h1,
-    h2 { 
+    h2 {
+        a,
+        a:hover {
+            border-bottom: 0;
+        }
+        
         span {
             color: rgba($black, .75);
             display: block;

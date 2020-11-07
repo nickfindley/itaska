@@ -1,6 +1,7 @@
 <?php
 if ( is_page( 'donate' ) ) :
-    add_filter( 'forminator_custom_form_submit_field_data', 'dutchtown_paypal_redirect', 10, 2);
+    // add_filter( 'forminator_custom_form_submit_field_data', 'dutchtown_paypal_redirect', 10, 2);
+    echo '<h1>donate form</h1>';
 endif;
 
 function dutchtown_paypal_redirect( $field_data_array, $form_id )
@@ -46,3 +47,5 @@ function dutchtown_paypal_redirect( $field_data_array, $form_id )
     // echo '<pre>' . print_r( $newdata );
     return $field_data_array;
 }
+
+// https://www.paypal.com/cgi-bin/webscr?return=https://www.dutchtownstl.org/donate/thanks/&tax=0&amp;currency=USD'&item_name=Donation&quantity=1&amount=1.00&src=1&t3=M&p3=1&a3=1.00&cmd=_xclick-subscriptions&business=nick@dutchtownstl.org

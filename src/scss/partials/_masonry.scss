@@ -1,5 +1,4 @@
-.masonry-wrapper,
-.front-page-posts {
+.masonry-container {
     @include make-row;
 
     @include media-breakpoint-up(sm) {
@@ -107,19 +106,26 @@
     }
 }
 
-.front-page-block.masonry-block,
-.front-page-posts .masonry-block {
+// .front-page-block.masonry-block,
+// .front-page-posts .masonry-block {
+.masonry-block {
     @include media-breakpoint-up(md) {
         @include make-col(6);
     }
-}
-
-.front-page-block.masonry-block {
+    
     @include media-breakpoint-up(lg) {
         @include make-col(4);
     }
 
     @include media-breakpoint-up(xl) {
         @include make-col(3);
+    }
+}
+
+.front-page-posts .masonry-block {
+    @include make-col(12);
+    
+    @include media-breakpoint-up(md) {
+        @include make-col(6);
     }
 }

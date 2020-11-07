@@ -73,9 +73,16 @@ gulp.task('compile-gf-sass', function(){
 });
 
 gulp.task('javascript', () => {
-   return gulp.src('./src/js/**.*')
+   return gulp.src(['./src/js/**.*', '!./src/js/forminator.js', '!./src/js/index.js'])
        .pipe(uglify())
        .pipe(concat('scripts.min.js'))
+       .pipe(gulp.dest('./dist/js'));
+});
+
+gulp.task('javascript-masonry', () => {
+   return gulp.src('./src/js/masonry/**.*')
+       .pipe(uglify())
+       .pipe(concat('masonry.min.js'))
        .pipe(gulp.dest('./dist/js'));
 });
 
@@ -93,14 +100,10 @@ gulp.task('javascript-bootstrap', () => {
 //     gulp.watch('./src/js/**.*', ['javascript']);
 // });
 gulp.task('watchFile', ['compile-custom-sass'], function() {
-    gulp.watch('./src/scss/**.*', ['compile-amp-sass']);
-    gulp.watch('./src/scss/**.*', ['compile-dt2-sass']);
-    gulp.watch('./src/scss/**.*', ['compile-dwna-sass']);
-    gulp.watch('./src/scss/**.*', ['compile-marquette-sass']);
     gulp.watch('./src/scss/calendar.scss', ['compile-calendar-sass']);
-    gulp.watch('./src/scss/gravityforms.scss', ['compile-gf-sass']);
     gulp.watch('./src/scss/**/**.*', ['compile-custom-sass']);
     gulp.watch('./src/js/**.*', ['javascript']);
+    gulp.watch('./src/js/masonry/**.*', ['javascript-masonry']);
 });
 
 gulp.task('default', ['watchFile']);

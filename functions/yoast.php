@@ -1,6 +1,7 @@
 <?php
 // https://wordpress.org/support/topic/remove-past-events-from-xml-sitemap/
-/* Modify the WP-SEO plugin's defaults */
+// Toggle post types off and on in Search Appearance to regenerate site maps
+
 if ( is_plugin_active( 'wordpress-seo-premium/wp-seo-premium.php' ) ) :
 
 	/* add nofollow metatag to header of past events */
@@ -22,7 +23,7 @@ if ( is_plugin_active( 'wordpress-seo-premium/wp-seo-premium.php' ) ) :
 			'meta_query'    => array(
 				array(
 					'key'       => '_EventEndDate',
-					'value'     => date( 'Y-m-d H:i:s' ),
+					'value' 	=> '2020-01-01 01:00:00',
 					'compare'   => '<',
 					'type'      => 'DATETIME',
 				),
@@ -33,7 +34,6 @@ if ( is_plugin_active( 'wordpress-seo-premium/wp-seo-premium.php' ) ) :
 		$ids = array_map( 'absint', $ids );
 		$ids = array_unique( $ids );
 		return $ids;
-        // echo '<pre>' . print_r( $ids ) . '</pre>';
 	}
 	add_filter( 'wpseo_exclude_from_sitemap_by_post_ids', 'dutchtown_expired_events' );
 endif;

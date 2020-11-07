@@ -44,7 +44,8 @@
 				</section>
 			</div>
 		</div>
-	</footer> 
+	</footer>
+    
 <div class="modal fade" id="navSearch" data-keyboard="false" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

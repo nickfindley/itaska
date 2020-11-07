@@ -26,18 +26,19 @@ function dutchtown_enqueue_scripts()
     endif;
 
     if ( is_front_page() || is_page_template( 'page-masonry.php' ) ) :
-        wp_register_script( 'bricks', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js', false, '1.14.3', true );
-        wp_enqueue_script( 'bricks' );
+        wp_register_script( 'masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js', false, '4.2.2', true );
+
+        wp_register_script( 'dutchtown_masonry_scripts', get_template_directory_uri() . '/dist/js/masonry.min.js', false, '1.0', true );
+        
+        wp_enqueue_script( 'masonry' );
+        wp_enqueue_script( 'dutchtown_masonry_scripts' );
     endif;
 
-    // wp_register_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', false, '1.14.3', true );
-    // wp_enqueue_script( 'popper' );
 
     wp_register_script( 'bootstrap_bundle', get_template_directory_uri() . '/dist/js/main.js', false, '4.1.3', true );
     wp_enqueue_script( 'bootstrap_bundle' );
 
     // wp_deregister_script( 'underscore' );
-
     // wp_register_script( 'underscore', ABSPATH . '/wp-includes/js/underscore.min.js', false, '1.83', true );
     // wp_enqueue_script( 'underscore' );
 
