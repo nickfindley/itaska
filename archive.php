@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts on archive pages
+ * The template for displaying archives
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -8,78 +8,64 @@
  * @subpackage Itaska
  * @since 0.1
  */
+
+get_header();
 ?>
-
-<article>
-    <div class="item-container container">
-        <?php if ( has_post_thumbnail() ) : ?>
-        <header class="item-header item-has-featured-image">
-            <div class="item-header-image">
-                <?php the_post_thumbnail(); ?>
+<main class="main-archive" id="content">
+    <header class="main-header">
+        <div class="main-header-container container">
+            <?php
+            $id = 'category_' . get_queried_object_id();
+            $image = get_field( 'category_image', $id );
+            $size = 'full';
+            if ( $image ) :
+            ?>
+            <div class="main-header-image">
+                <?php echo wp_get_attachment_image( $image, $size ); ?>
             </div>
-            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-        <?php else : ?>
-        <header class="item-header">
-            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-        <?php endif; ?>
-            <section class="item-meta">
-                <ul>
-                    <li>
-                    <?php if ( get_post_type( get_the_ID() ) == 'places' ) : ?>
-                        <i class="fas fa-map-marker-alt"></i><a href="<?php the_permalink(); ?>">Dutchtown Places</a>
-                    <?php else : ?>
-                        <?php
-                        if ( function_exists( 'tribe_is_event' ) ) : 
-                            if ( tribe_is_event() ) :  ?>
-                            <i class="far fa-fw fa-calendar-alt"></i>
-                            <?php else : ?>
-                            <i class="fas fa-fw fa-file"></i>
-                            <?php endif;
-                        endif;
-                        dutchtown_posted_on();
-                    endif; ?></li>
-                    <?php dutchtown_header_social_links(); ?>
-                </ul>
-                <?php if ( comments_open() || get_comments_number() > 0 ) : ?>
-                <ul class="item-comment-links">
-                <?php
-                dutchtown_comment_link( array(
-                    'before_list'	=> '<li><i class="fas fa-fw fa-comments"></i>',
-                    'after_list'	=> '</li> ',
-                    'before_form'	=> '<li><i class="fas fa-fw fa-comment-alt"></i>',
-                    'after_form'	=> '</li>',
-                    'count_args'	=> array(
-                        'cap'		=> true,
-                        'there'		=> false
-                        )
-                    )
-                );
-                ?>
-                </ul>
-                <?php endif; ?>
+            <?php endif; ?>
+            <h1><?php the_archive_title(); ?></h1>
+            <?php if ( category_description() ) :?>
+            <section class="main-header-content">
+                <?php echo category_description(); ?>
             </section>
-        </header>
-        <section class="item-content">
-            <?php the_excerpt(); ?>
-        </section>
-        <?php if ( get_post_type() == 'page' || get_post_type() == 'tribe_organizer' || get_post_type() == 'tribe_venue' ) : echo ''; else:  ?>
-        <footer class="item-footer">
-            <?php 
-                if ( get_post_type( get_the_ID() ) == 'places' ) :
-                    $tax = 'place_category';
-                elseif ( function_exists( 'tribe_is_event' ) && tribe_is_event() ) :
-                    $tax = 'tribe_events_cat';
-                else :
-                    $tax = 'category';
-                endif;
-                $category = get_primary_taxonomy_term( get_the_ID(), $tax ); 
-                if ( $category ) : ?>
-            <p class="categories-less">Filed under <a href="<?php echo $category['url']; ?>"><?php echo $category['title']; ?></a>. <a href="#" onclick="return false;" class="swap">Show all categories</a>.</p>
-            <p class="categories-more hide-category">Filed under <?php dutchtown_oxford_categories(); ?>. <a href="#" onclick="return false;" class="swap">Show fewer categories</a>.</p>
-                <?php endif; ?>
-
-            <?php if ( dutchtown_is_updated() ) : ?><p>This post was last updated on <?php dutchtown_updated_on(); ?>.</p><?php endif; ?>
-        </footer>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
+    </header>
+    <div class="archive-container container">
+        <div class="archive-category">
+            <section class="archive-past-posts">
+                <?php
+                if ( have_posts() ) :
+                    while ( have_posts() ) :
+                        the_post();
+                        get_template_part( 'content/archive' );
+                    endwhile;
+                    echo bootstrap_pagination();
+                else : 
+                    get_template_part( 'template-parts/content', 'none' );
+                endif;		
+                ?>
+            </section>
+            <section class="archive-category-list">
+                <header class="archive-category-list-header">
+                    <h2>All Categories</h2>
+                </header>
+                <ul class="list-unstyled"><?php 
+                    $args = array(
+                        'exclude' => '1',
+                        'title_li' => '',
+                        'show_count' => true
+                    );
+                    wp_list_categories( $args);
+                ?></ul>
+            </section>
+        </div>
     </div>
-</article>
+    <div class="main-footer-container container">
+        <footer class="main-footer">
+            <?php if ( function_exists('yoast_breadcrumb') ) : ?><p class="post-breadcrumbs"><?php yoast_breadcrumb(); ?></p><?php elseif ( function_exists( 'bcn_display' ) ) : ?><p class="post-breadcrumbs"><?php bcn_display(); ?></p><?php endif;?>
+        </footer>
+    </div>
+</main>
+<?php get_footer(); ?>

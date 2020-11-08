@@ -51,7 +51,7 @@ function bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
 		]
 	);
 	if ( is_array( $pages ) ) {
-		// $paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
+		$paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
 		$pagination = '<nav class="pagination-container" aria-label="Archive pages"><ul class="pagination">';
 		foreach ($pages as $page) {
                         $pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';

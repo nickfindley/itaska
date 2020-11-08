@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for a page
+ * The template for the front page - either a static page, or posts if no static page is set
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -37,6 +37,7 @@ get_header(); ?>
                 the_post();
                 get_template_part( 'content/post' );
             endwhile;
+            bootstrap_pagination();
         else :
             get_template_part( 'template-parts/content', 'none' );
         endif;
