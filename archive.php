@@ -53,11 +53,9 @@ get_header();
                 </header>
                 <ul class="list-unstyled"><?php 
                     $args = array(
-                        'exclude' => '1',
-                        'title_li' => '',
-                        'show_count' => true
+                        'type' => 'monthly'
                     );
-                    wp_list_categories( $args);
+                    wp_get_archives( $args);
                 ?></ul>
             </section>
         </div>

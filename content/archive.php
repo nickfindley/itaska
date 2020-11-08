@@ -60,6 +60,7 @@
             </section>
         </header>
         <section class="item-content">
+            <?php if ( function_exists( 'ThreeWP_Broadcast' ) ) : if ( broadcasted_from() ) : echo broadcasted_from(); endif; endif; ?>
             <?php the_excerpt(); ?>
         </section>
         <?php if ( get_post_type() == 'page' || get_post_type() == 'tribe_organizer' || get_post_type() == 'tribe_venue' ) : echo ''; else:  ?>
