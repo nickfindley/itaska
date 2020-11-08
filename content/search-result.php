@@ -60,47 +60,8 @@
             </section>
         </header>
         <section class="item-content">
+            <?php if ( function_exists( 'ThreeWP_Broadcast' ) ) : if ( broadcasted_from() ) : echo broadcasted_from(); endif; endif; ?>
             <?php the_excerpt(); ?>
         </section>
-        <?php if ( get_post_type() == 'page' || get_post_type() == 'tribe_organizer' || get_post_type() == 'tribe_venue' ) : echo ''; else:  ?>
-        <footer class="item-footer">
-            <?php 
-                if ( get_post_type( get_the_ID() ) == 'places' ) :
-                    $tax = 'place_category';
-                elseif ( function_exists( 'tribe_is_event' ) && tribe_is_event() ) :
-                    $tax = 'tribe_events_cat';
-                else :
-                    $tax = 'category';
-                endif;
-
-                if ( get_primary_taxonomy_term( get_the_ID(), $tax ) ) :
-                    $category = get_primary_taxonomy_term( get_the_ID(), $tax );
-                else : 
-                    $category = '';
-                endif;
-                
-                if ( $category ) : ?>
-            <p class="categories">
-                Filed under 
-                <span class="collapse collapse-cat show" id="primaryCategory<?php echo get_the_ID(); ?>">
-                    <a href="<?php echo $category['url']; ?>">
-                        <?php echo $category['title']; ?>
-                    </a>. 
-                    <a href="#" data-toggle="collapse" data-target=".collapse" aria-expanded="true" aria-controls="primaryCategory allCategories">
-                        Show all categories
-                    </a>.
-                </span> 
-                <span class="collapse collapse-cat" id="allCategories<?php echo get_the_ID(); ?>">
-                    <?php dutchtown_oxford_categories(); ?>.  
-                    <a href="#" data-toggle="collapse" data-target=".collapse" aria-expanded="false" aria-controls="primaryCategory<?php echo get_the_ID(); ?> allCategories<?php echo get_the_ID(); ?>">
-                        Show fewer categories
-                    </a>.
-                </span>
-            </p>
-                <?php endif; ?>
-
-            <?php if ( dutchtown_is_updated() ) : ?><p>This post was last updated on <?php dutchtown_updated_on(); ?>.</p><?php endif; ?>
-        </footer>
-        <?php endif; ?>
     </div>
 </article>

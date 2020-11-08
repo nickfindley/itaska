@@ -49,7 +49,7 @@ if ( ! function_exists( 'dutchtown_excerpt' ) )
         }
         else
         {
-            if ( ( $blog_id == 1 && tribe_is_event() ) || get_post_type() == 'places' )
+            if ( ( $blog_id == 1 && function_exists( 'tribe_is_event' ) &&tribe_is_event() ) || get_post_type() == 'places' )
             {
                 $excerpt_end = ' <a href="'. esc_url( get_permalink() ) . '">' . sprintf(__( 'Find out more about &ldquo;%s&rdquo;', 'dutchtown' ), get_the_title()) . '</a>&nbsp;<i class="fas fa-caret-right"></i>'; 
             }

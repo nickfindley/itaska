@@ -21,7 +21,9 @@ get_header(); ?>
 	if ( have_posts() ) :
 		while ( have_posts() ) :
             the_post();
-			get_template_part( 'content/archive' );
+            switch_to_blog( $post->blog_id );
+            get_template_part( 'content/search-result' );
+            restore_current_blog();
         endwhile;
         echo bootstrap_pagination();
     else : 

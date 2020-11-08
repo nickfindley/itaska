@@ -26,6 +26,8 @@ require get_template_directory() . '/functions/places.php';
 require get_template_directory() . '/functions/posted-date.php';
 require get_template_directory() . '/functions/primary-term.php';
 require get_template_directory() . '/functions/relevanssi.php';
+require get_template_directory() . '/functions/relevanssi-hits-filter.php';
+require get_template_directory() . '/functions/search-results.php';
 require get_template_directory() . '/functions/site-notice.php';
 require get_template_directory() . '/functions/social-links.php';
 require get_template_directory() . '/functions/temp-table.php';

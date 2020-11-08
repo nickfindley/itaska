@@ -2,7 +2,7 @@
 // https://wordpress.org/support/topic/remove-past-events-from-xml-sitemap/
 // Toggle post types off and on in Search Appearance to regenerate site maps
 
-if ( is_plugin_active( 'wordpress-seo-premium/wp-seo-premium.php' ) ) :
+if ( is_plugin_active( 'wordpress-seo-premium/wp-seo-premium.php' ) && function_exists( 'tribe_is_event' ) ) :
 
 	/* add nofollow metatag to header of past events */
 	add_filter( "wpseo_robots", function( $robots )

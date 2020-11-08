@@ -35,7 +35,7 @@ if ( ! function_exists( 'dutchtown_oxford_categories' ) ) :
 			for ( $i = 0; $i < count($cats); $i++ )
 			{
 				$output[$i] = $args['before_link'] . '<a href="' . get_term_link( $cats[$i]->term_id );
-                if ( $blog_id == 1 && tribe_is_event() ) :
+                if ( $blog_id == 1 && function_exists( 'tribe_is_event' ) && tribe_is_event() ) :
                     $output[$i] .= 'list/';
                 endif;
                 $output[$i] .= '">' . $cats[$i]->name . '</a>' . $args['after_link'];
