@@ -11,6 +11,7 @@ div.search-form {
 
 .search-field {
     @extend .form-control-lg;
+    border-radius: 0;
 }
 
 .relevanssi-query-term {
