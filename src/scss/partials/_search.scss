@@ -17,3 +17,22 @@ div.search-form {
 .relevanssi-query-term {
     @include bold;
 }
+
+.search-result-from {
+    display: flex;
+    margin-bottom: -1rem;
+
+    & > span {
+        background: $primary;
+        box-shadow: $box-shadow;
+        color: $black;
+        display: block;
+        font-size: 87.5%;
+        line-height: 1;
+        padding: $paragraph-margin-bottom / 2;
+    }
+
+    a {
+        font-weight: 700;
+    }
+}

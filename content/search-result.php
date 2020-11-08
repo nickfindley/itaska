@@ -12,6 +12,11 @@
 
 <article>
     <div class="item-container container">
+        <?php if ( get_current_blog_id() !== 1 ) : ?>
+        <div class="search-result-from">
+            <span>From <a href="<?php home_url(); ?>"><?php echo get_bloginfo( 'name' ); ?></a></span>
+        </div>
+        <?php endif; ?>
         <?php if ( has_post_thumbnail() ) : ?>
         <header class="item-header item-has-featured-image">
             <div class="item-header-image">
