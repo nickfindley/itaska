@@ -32,6 +32,8 @@
                     <li>
                     <?php if ( get_post_type( get_the_ID() ) == 'places' ) : ?>
                         <i class="fas fa-map-marker-alt"></i><a href="<?php the_permalink(); ?>">Dutchtown Places</a>
+                    <?php elseif ( get_post_type( get_the_ID() ) == 'page' ) : ?>
+                        <i class="fas fa-file-alt"></i><a href="<?php the_permalink(); ?>">Page</a>
                     <?php else : ?>
                         <?php
                         if ( function_exists( 'tribe_is_event' ) ) : 
@@ -45,28 +47,12 @@
                     endif; ?></li>
                     <?php dutchtown_header_social_links(); ?>
                 </ul>
-                <?php if ( comments_open() || get_comments_number() > 0 ) : ?>
-                <ul class="item-comment-links">
-                <?php
-                dutchtown_comment_link( array(
-                    'before_list'	=> '<li><i class="fas fa-fw fa-comments"></i>',
-                    'after_list'	=> '</li> ',
-                    'before_form'	=> '<li><i class="fas fa-fw fa-comment-alt"></i>',
-                    'after_form'	=> '</li>',
-                    'count_args'	=> array(
-                        'cap'		=> true,
-                        'there'		=> false
-                        )
-                    )
-                );
-                ?>
-                </ul>
-                <?php endif; ?>
             </section>
         </header>
         <section class="item-content">
             <?php if ( function_exists( 'ThreeWP_Broadcast' ) ) : if ( broadcasted_from() ) : echo broadcasted_from(); endif; endif; ?>
-            <?php the_excerpt(); ?>
+            <?php relevanssi_the_excerpt(); ?>
+            <p><a href="<?php the_permalink(); ?>">See more of <b><?php the_title(); ?></b> <i class="fas fa-caret-right"></i></a></p>
         </section>
     </div>
 </article>
