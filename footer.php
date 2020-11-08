@@ -49,7 +49,7 @@
 <div class="modal fade" id="navSearch" data-keyboard="false" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form id="searchform" role="search" action="<?php echo esc_url( site_url() ); ?>" method="get">
+            <form id="searchform" role="search" action="/" method="get">
                 <div class="modal-header">
                     <h5 class="modal-title" id="searchModalLabel" aria-label="s">Search <?php bloginfo( 'name' ); ?></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
