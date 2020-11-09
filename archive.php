@@ -49,7 +49,7 @@ get_header();
             </section>
             <section class="archive-category-list">
                 <header class="archive-category-list-header">
-                    <h2>All Categories</h2>
+                    <h2>All Posts</h2>
                 </header>
                 <ul class="list-unstyled"><?php 
                     $args = array(

@@ -61,7 +61,7 @@ get_header(); ?>
                 </header>
                 <?php
                 $args = array(
-                    'post_type' => 'tribe_events',
+                    'post_type' => array(Tribe__Events__Main::POSTTYPE),
                     'posts_per_page' => -1,
                     'tag' => $tag->slug,
                     'meta_key' => '_EventStartDate',
