@@ -69,7 +69,7 @@
                 if ( get_post_type( get_the_ID() ) == 'places' ) :
                     $tax = 'place_category';
                 elseif ( function_exists( 'tribe_is_event' ) && tribe_is_event() ) :
-                    $tax = 'tribe_events_cat';
+                    $tax = Tribe__Events__Main::TAXONOMY;
                 else :
                     $tax = 'category';
                 endif;
