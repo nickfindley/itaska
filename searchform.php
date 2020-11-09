@@ -1,6 +1,6 @@
 <div class="search-form" role="search">
     <form method="get" action="/">
-        <label>
+        <label for="s">
             <span class="sr-only">Search for:</span>
         </label>
         <div class="input-group">

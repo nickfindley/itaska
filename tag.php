@@ -55,39 +55,47 @@ get_header(); ?>
                 endif;
                 ?>
             </section>
+
+            
             <section class="archive-upcoming-events container">
+            <?php 
+                if ( function_exists( 'tribe_is_event' ) ) :
+            ?>
                 <header class="archive-upcoming-events-header">
                     <h2>Upcoming Events</h2>
                 </header>
                 <?php
-                $args = array(
-                    'post_type' => array(Tribe__Events__Main::POSTTYPE),
-                    'posts_per_page' => -1,
-                    'tag' => $tag->slug,
-                    'meta_key' => '_EventStartDate',
-                    'tribeHideRecurrence' => true,
-                    'meta_query' => array(
-                        array (
-                            'key' => '_EventStartDate',
-                            'value' => date( 'Y-m-d G:i:s'),
-                            'compare' => '>=',
-                            'type' => 'DATE'
-                        )
-                    ),
-                );
+                    $args = array(
+                        'post_type' => array(Tribe__Events__Main::POSTTYPE),
+                        'posts_per_page' => -1,
+                        'tag' => $tag->slug,
+                        'meta_key' => '_EventStartDate',
+                        'tribeHideRecurrence' => true,
+                        'meta_query' => array(
+                            array (
+                                'key' => '_EventStartDate',
+                                'value' => date( 'Y-m-d G:i:s'),
+                                'compare' => '>=',
+                                'type' => 'DATE'
+                            )
+                        ),
+                    );
 
-                $upcoming_events_query = new WP_Query( $args );
-                
-                if ( $upcoming_events_query->have_posts() ) :
-                    while ( $upcoming_events_query->have_posts() ) :
-                        $upcoming_events_query->the_post();
-                        get_template_part( 'content/archive-upcoming-event' );
-                    wp_reset_postdata();
-                    endwhile;
-                else :
-                    ?><p>We didn't find any upcoming events tagged &ldquo;<?php single_tag_title(); ?>.&rdquo; Visit our <a href="/calendar/">Dutchtown Calendar</a> to find more events.</p><?php
+                    $upcoming_events_query = new WP_Query( $args );
+                    
+                    if ( $upcoming_events_query->have_posts() ) :
+                        while ( $upcoming_events_query->have_posts() ) :
+                            $upcoming_events_query->the_post();
+                            get_template_part( 'content/archive-upcoming-event' );
+                        wp_reset_postdata();
+                        endwhile;
+                    else :
+                        ?><p>We didn't find any upcoming events tagged &ldquo;<?php single_tag_title(); ?>.&rdquo; Visit our <a href="/calendar/">Dutchtown Calendar</a> to find more events.</p><?php
+                    endif;
+                else : 
+                    echo get_search_form();
                 endif;
-                ?>
+            ?>
             </section>
         </div>
     </div>
