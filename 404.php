@@ -21,14 +21,7 @@ get_header(); ?>
             <div class="main-content-container container">
                 <p>Sorry, it looks like the page you requested can't be located. Please try searching below. You can also <a href="/contact/">contact us</a> if you&apos;re still having trouble.</p>
                 <h3>Search DutchtownSTL.org</h3>
-                <form role="search" method="get" class="form search-form" action="/index.php">
-                    <div class="input-group">
-                        <input name="s" type="text" class="form-control" placeholder="Search DutchtownSTL.org">
-                        <div class="input-group-append">
-                            <button type="submit" value="Search" class="btn btn-primary" type="button"><i class="fas fa-search" aria-hidden="true"></i> Search</button>
-                        </div>
-                    </div>
-                </form>
+                <?php echo get_search_form(); ?>
                 <div class="error-links">
                     <section class="error-categories">
                         <h4>Posts by Category</h4>

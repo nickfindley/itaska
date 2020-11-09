@@ -93,7 +93,12 @@ get_header(); ?>
                         ?><p>We didn't find any upcoming events tagged &ldquo;<?php single_tag_title(); ?>.&rdquo; Visit our <a href="/calendar/">Dutchtown Calendar</a> to find more events.</p><?php
                     endif;
                 else : 
-                    echo get_search_form();
+            ?>
+                <header class="archive-upcoming-events-header">
+                    <h2>Search DutchtownSTL</h2>
+                </header>
+                <?php get_search_form(); ?>
+            <?php
                 endif;
             ?>
             </section>
