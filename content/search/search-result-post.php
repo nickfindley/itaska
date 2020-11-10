@@ -53,7 +53,7 @@
 
         <section class="item-content">
             <?php relevanssi_the_excerpt(); ?>
-            <p><a href="<?php the_permalink(); ?>">See more of <b><?php the_title(); ?></b> <i class="fas fa-caret-right"></i></a></p>
+            <p><a href="<?php the_permalink(); ?>">Read more of <b><?php the_title(); ?></b> <i class="fas fa-caret-right"></i></a></p>
         </section>
     </div>
 </article>
