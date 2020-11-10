@@ -53,7 +53,9 @@ get_header(); ?>
 
 	<div class="main-footer-container container">
         <footer class="main-footer">
-            <?php if ( function_exists('yoast_breadcrumb') ) : ?><p class="post-breadcrumbs"><?php yoast_breadcrumb(); ?></p><?php elseif ( function_exists( 'bcn_display' ) ) : ?><p class="post-breadcrumbs"><?php bcn_display(); ?></p><?php endif;?>
+        <?php if ( function_exists('yoast_breadcrumb') ) : ?>
+            <p class="post-breadcrumbs"><?php yoast_breadcrumb(); ?></p>
+        <?php endif;?>
         </footer>
     </div>
 </main>
