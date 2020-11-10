@@ -12,7 +12,7 @@
 require get_template_directory() . '/functions/venue-link.php';
 ?>
 <article>
-    <div class="item-container container">
+    <div class="item-container">
         <header class="item-header">
             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <section class="item-meta">

@@ -31,9 +31,10 @@ get_header(); ?>
             <?php endif; ?>
         </div>
     </header>
+
     <div class="archive-container container">
-        <div class="archive-tag">
-            <section class="archive-past-posts">
+        <div class="row">
+            <section class="archive-posts">
                 <?php
                 $paged  = get_query_var('paged') ? get_query_var('paged') : 1;
                 $tag = get_queried_object();
@@ -57,11 +58,11 @@ get_header(); ?>
             </section>
 
             
-            <section class="archive-upcoming-events">
+            <aside class="archive-sidebar">
             <?php 
                 if ( function_exists( 'tribe_is_event' ) ) :
             ?>
-                <header class="archive-upcoming-events-header">
+                <header>
                     <h2>Upcoming Events</h2>
                 </header>
                 <?php
@@ -92,21 +93,21 @@ get_header(); ?>
                     else :
                         ?><p>We didn't find any upcoming events tagged &ldquo;<?php single_tag_title(); ?>.&rdquo; Visit our <a href="/calendar/">Dutchtown Calendar</a> to find more events.</p><?php
                     endif;
-                else : 
+                endif;
             ?>
-                <header class="archive-upcoming-events-header">
+                <header class="search-header">
                     <h2>Search DutchtownSTL</h2>
                 </header>
                 <?php get_search_form(); ?>
-            <?php
-                endif;
-            ?>
-            </section>
+            </aside>
         </div>
     </div>
+
     <div class="main-footer-container container">
         <footer class="main-footer">
-            <?php if ( function_exists('yoast_breadcrumb') ) : ?><p class="post-breadcrumbs"><?php yoast_breadcrumb(); ?></p><?php elseif ( function_exists( 'bcn_display' ) ) : ?><p class="post-breadcrumbs"><?php bcn_display(); ?></p><?php endif;?>
+        <?php if ( function_exists('yoast_breadcrumb') ) : ?>
+            <p class="post-breadcrumbs"><?php yoast_breadcrumb(); ?></p>
+        <?php endif;?>
         </footer>
     </div>
 </main>

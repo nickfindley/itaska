@@ -31,9 +31,10 @@ get_header(); ?>
             <?php endif; ?>
         </div>
     </header>
+
     <div class="archive-container container">
-        <div class="archive-category">
-            <section class="archive-past-posts">
+        <div class="row">
+            <section class="archive-posts">
                 <?php
                 if ( have_posts() ) :
                     while ( have_posts() ) :
@@ -46,11 +47,12 @@ get_header(); ?>
                 endif;		
                 ?>
             </section>
-            <section class="archive-category-list">
-                <header class="archive-category-list-header">
+
+            <aside class="archive-sidebar">
+                <header>
                     <h2>All Categories</h2>
                 </header>
-                <ul class="list-unstyled"><?php 
+                <ul class="list-unstyled archive-list"><?php 
                     $args = array(
                         'exclude' => '1',
                         'title_li' => '',
@@ -58,12 +60,19 @@ get_header(); ?>
                     );
                     wp_list_categories( $args);
                 ?></ul>
-            </section>
+
+                <header class="search-header">
+                    <h2>Search DutchtownSTL</h2>
+                </header>
+                <?php get_search_form(); ?>
+            </aside>
         </div>
     </div>
     <div class="main-footer-container container">
         <footer class="main-footer">
-            <?php if ( function_exists('yoast_breadcrumb') ) : ?><p class="post-breadcrumbs"><?php yoast_breadcrumb(); ?></p><?php elseif ( function_exists( 'bcn_display' ) ) : ?><p class="post-breadcrumbs"><?php bcn_display(); ?></p><?php endif;?>
+        <?php if ( function_exists('yoast_breadcrumb') ) : ?>
+            <p class="post-breadcrumbs"><?php yoast_breadcrumb(); ?></p>
+        <?php endif;?>
         </footer>
     </div>
 </main>
