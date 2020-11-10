@@ -17,6 +17,7 @@
             <span>From <a href="<?php home_url(); ?>"><?php echo get_bloginfo( 'name' ); ?></a></span>
         </div>
         <?php endif; ?>
+        
         <?php if ( has_post_thumbnail() ) : ?>
         <header class="item-header item-has-featured-image">
             <div class="item-header-image">
@@ -49,8 +50,8 @@
                 </ul>
             </section>
         </header>
+
         <section class="item-content">
-            <?php if ( function_exists( 'ThreeWP_Broadcast' ) ) : if ( broadcasted_from() ) : echo broadcasted_from(); endif; endif; ?>
             <?php relevanssi_the_excerpt(); ?>
             <p><a href="<?php the_permalink(); ?>">See more of <b><?php the_title(); ?></b> <i class="fas fa-caret-right"></i></a></p>
         </section>

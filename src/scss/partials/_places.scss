@@ -1,25 +1,23 @@
-.main-single-place {
-    dl {
-        @include make-row();
+.place-contact {
+    @include make-row();
 
-        dt {
-            @include make-col-ready();
-            @include make-col(5);
-            @include media-breakpoint-up(lg) {
-                @include make-col(3);
-            }
-
-            &.twenty-four-hours {
-                @include make-col(12);
-            }
+    dt {
+        @include make-col-ready();
+        @include make-col(5);
+        @include media-breakpoint-up(lg) {
+            @include make-col(3);
         }
 
-        dd {
-            @include make-col-ready();
-            @include make-col(7);
-            @include media-breakpoint-up(lg) {
-                @include make-col(9);
-            }
+        &.twenty-four-hours {
+            @include make-col(12);
+        }
+    }
+
+    dd {
+        @include make-col-ready();
+        @include make-col(7);
+        @include media-breakpoint-up(lg) {
+            @include make-col(9);
         }
     }
 }
