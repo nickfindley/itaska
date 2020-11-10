@@ -57,7 +57,7 @@ get_header(); ?>
             </section>
 
             
-            <section class="archive-upcoming-events container">
+            <section class="archive-upcoming-events">
             <?php 
                 if ( function_exists( 'tribe_is_event' ) ) :
             ?>
