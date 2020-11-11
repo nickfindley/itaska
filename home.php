@@ -17,7 +17,6 @@ get_header();
         while ( have_posts() ) :
             the_post();
             get_template_part( 'content/post' );
-            echo '<h3>home</h3>';
         endwhile;
         bootstrap_pagination();
     else : 
