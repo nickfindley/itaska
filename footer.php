@@ -94,7 +94,7 @@
                             <h5><a href="/places/">Places Directory</a></h5>
                             <p>Visit our <a href="/places/">directory of places in Dutchtown</a> including restaurants, bars, shops, services, and more!</p>
 
-                            <h5>Go Dutch!</h5>
+                            <h5><a href="/godutch/">Go Dutch!</a></h5>
                             <p>Find information geared towards real estate professionals about <a href="/godutch/">buying and selling in Dutchtown</a>.</p>
                         </div>
                         <div class="nav-more">
