@@ -1,4 +1,5 @@
-.place-contact {
+.place-contact,
+.place-hours {
     @include make-row();
 
     dt {
@@ -227,19 +228,9 @@
 
         i {
             color: rgba($primary, .875);
-            padding-right: 1.5rem;
-
-            &.fa-passport:before {
-                padding-left: .175rem;
-            }
-
-            &.icon-cherokee {
-                padding-right: .5rem;
-
-                @include media-breakpoint-up(md) {
-                    padding-right: .25rem;
-                }
-            }
+            display: inline-flex;
+            justify-content: center;
+            padding: 0 1rem 0 .5rem;
         }
     }
 
