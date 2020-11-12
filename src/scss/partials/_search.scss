@@ -9,6 +9,12 @@
     }
 }
 
+.search-results .item-meta ul li .post-meta-expanded {
+    @include media-breakpoint-up(md) {
+        display: none;
+    }
+}
+
 .archive-sidebar {
     .search-header h2 {
         margin-bottom: 0;

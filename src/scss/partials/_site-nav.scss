@@ -1,28 +1,32 @@
 body {
     @include media-breakpoint-up(sm) {
-        padding-top: calc(58px + #{$paragraph-margin-bottom});
+        padding-top: 58px;
     }
 
     @include media-breakpoint-up(md) {
-        padding-top: calc(89px + #{$paragraph-margin-bottom});
+        padding-top: 89px;
     }
 
     @include media-breakpoint-up(lg) {
-        padding-top: calc(98px + #{$paragraph-margin-bottom});
+        padding-top: 98px;
     }
 
     &.body-subsite {
         @include media-breakpoint-up(sm) {
-            padding-top: calc(59px + #{$paragraph-margin-bottom});
+            padding-top: 59px;
         }
 
         @include media-breakpoint-up(md) {
-            padding-top: calc(133px + #{$paragraph-margin-bottom});
+            padding-top: 133px;
         }
 
         @include media-breakpoint-up(lg) {
-            padding-top: calc(143px + #{$paragraph-margin-bottom});
+            padding-top: 143px;
         }
+    }
+
+    &.blog {
+        margin-top: 2rem;
     }
 }
 

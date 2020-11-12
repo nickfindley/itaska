@@ -32,20 +32,11 @@ get_header(); ?>
                     $args = array(
                         'post_type' => 'places',
                         'tax_query' => array(
-                            'relation' => 'and',
                             array(
                                 'taxonomy' => 'place_category',
                                 'field' => 'slug',
                                 'terms' => $custom_term->slug,
                             ),
-                        ),
-                        'meta_query' => array(
-                            'relation' => 'and',
-                            array(
-                                'key' => 'closed',
-                                'value' => 0,
-                                'compare' => '=='
-                            )
                         ),
                         'orderby' => 'post_title',
                         'order' => 'ASC',
@@ -67,20 +58,11 @@ get_header(); ?>
                     $args = array(
                         'post_type' => 'places',
                         'tax_query' => array(
-                            'relation' => 'and',
                             array(
                                 'taxonomy' => 'place_category',
                                 'field' => 'slug',
                                 'terms' => $custom_term->slug,
                             ),
-                        ),
-                        'meta_query' => array(
-                            'relation' => 'and',
-                            array(
-                                'key' => 'closed',
-                                'value' => 0,
-                                'compare' => '=='
-                            )
                         ),
                         'orderby' => 'post_title',
                         'order' => 'ASC',
@@ -100,8 +82,7 @@ get_header(); ?>
                         echo '<h3 class="place-category" id="'  . $custom_term->slug . '"><a href="/places/category/' . $custom_term->slug . '/">' . $custom_term->name . '</a></h3>';
                         echo "\n";
                         echo '<ul>';
-                        while( $loop->have_posts() ) :
-                            $loop->the_post();
+                        while($loop->have_posts()) : $loop->the_post();
                             if ( get_field( 'closed' ) == false && get_field( 'hide_from_listings' ) == false  ) :
                                 echo "\n\t";
                                 echo '<li><a href="'.get_permalink().'">'.get_the_title().'</a>';

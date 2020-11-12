@@ -31,7 +31,18 @@
                     <li>
                         <i class="fas fa-fw fa-calendar-alt"></i> <?php dutchtown_posted_on(); ?>
                     </li>
-                    <?php dutchtown_header_social_links(); ?>
+                <?php
+                    if ( tribe_is_recurring_event() ) :
+                ?>
+                    <li>
+                        <i class="fas fa-fw fa-calendar-alt"></i>
+                        <span class="post-meta-expanded">Recurring: </span>
+                        <a href="<?php echo tribe_all_occurences_link(); ?>">See all dates and times</a>
+                    </li>
+                <?php
+                    endif;
+                    dutchtown_header_social_links();
+                ?>
                 </ul>
             </section>
         </header>
