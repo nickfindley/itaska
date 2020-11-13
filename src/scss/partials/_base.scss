@@ -8,11 +8,50 @@ html {
 }
 
 body {
+    --nav-padding: 0;
     margin-top: 0;
     overflow-x: hidden;
     padding-left: 0 !important;
     padding-right: 0 !important;
     position: relative;
+
+    @include media-breakpoint-up(sm) {
+        --nav-padding: 58px;
+        padding-top: 58px;
+    }
+
+    @include media-breakpoint-up(md) {
+        --nav-padding: 89px;
+        padding-top: 89px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        --nav-padding: 98px;
+        padding-top: 98px;
+    }
+
+    &.body-subsite {
+        @include media-breakpoint-up(sm) {
+            --nav-padding: 59px;
+            padding-top: 59px;
+        }
+
+        @include media-breakpoint-up(md) {
+            --nav-padding: 133px;
+            padding-top: 133px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            --nav-padding: 143px;
+            padding-top: 143px;
+        }
+    }
+
+    &.blog {
+        @include media-breakpoint-up(sm) {
+            margin-top: 2rem;
+        }
+    }
 }
 
 .site-wrapper {

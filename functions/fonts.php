@@ -1,5 +1,5 @@
 <?php
-add_action( 'wp_enqueue_scripts', 'dutchtown_fonts' );
+add_action( 'wp_head', 'dutchtown_fonts' );
 
 function dutchtown_fonts()
 {

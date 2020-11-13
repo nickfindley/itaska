@@ -16,12 +16,16 @@ get_header(); ?>
 			<h1>The Dutchtown Places Directory</h1>
 		</div>
     </header>
-    <div class="places-container container">
+    <div class="places-container container places-new">
         <section class="places-content">
             <p>Welcome to the Dutchtown Places Directory. Find businesses, services, and landmarks here in Dutchtown, Gravois Park, Marine Villa, Mount Pleasant, and Cherokee Street.</p>
             <p>The information in the Dutchtown Places Directory is accurate as of the time of publication. If you find an inaccuracy, please <a href="/contact/">contact us</a>. To add a place please <a href="/places/submit/">complete our submission form</a>.</p>
         </section>
-        <section class="places-list">
+        <section class="places-list" id="places-list">
+            <?php
+                $custom_terms = get_terms('place_category');
+            ?>
+            <h2>Jump to Category</h2>
             <ul class="places-categories">
             <?php
                 //  https://wordpress.stackexchange.com/questions/66219/list-all-posts-in-custom-post-type-by-taxonomy
@@ -53,14 +57,17 @@ get_header(); ?>
                     );
                     $loop = new WP_Query($args);
                     if ( $loop->have_posts() ) :
-                        echo '<li><a href="#'  . $custom_term->slug . '">' . $custom_term->name . '</a></li>';
-                        echo "\n";
+            ?>
+                <li>
+                    <a href="#<?php echo $custom_term->slug; ?>"><?php echo $custom_term->name; ?></a>
+                </li>
+            <?php
                     endif;
                 endforeach;
             ?>
             </ul>
 
-            <section class="places-complete-list">
+            <section class="places-masonry masonry-container">
             <?php
                 foreach( $custom_terms as $custom_term ) :
                     wp_reset_query();
@@ -96,34 +103,62 @@ get_header(); ?>
                     remove_filter('posts_orderby', 'wpcf_sort_by_temp_column'); // Remove the temporary order filter 
 
                     if ( $loop->have_posts() ) :
-                        echo "\n";
-                        echo '<h3 class="place-category" id="'  . $custom_term->slug . '"><a href="/places/category/' . $custom_term->slug . '/">' . $custom_term->name . '</a></h3>';
-                        echo "\n";
-                        echo '<ul>';
+                    ?>
+                    <div class="masonry-block" id="<?php echo $custom_term->slug; ?>">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="place-category">
+                                    <a href="/places/category/<?php echo $custom_term->slug; ?> /">
+                                        <?php echo $custom_term->name; ?>
+                                    </a>
+                                    <a href="#places-list"><span class="sr-only">Top</span><i class="fas fa-caret-up"></i></a>
+                                </h2>
+                                <ul>
+                    <?php
                         while( $loop->have_posts() ) :
                             $loop->the_post();
                             if ( get_field( 'closed' ) == false && get_field( 'hide_from_listings' ) == false  ) :
-                                echo "\n\t";
-                                echo '<li><a href="'.get_permalink().'">'.get_the_title().'</a>';
+                    ?>
+                                    <li>
+                                        <a href="<?php the_permalink(); ?>">
+                                            <?php the_title(); ?>
+                                        </a>
+                    <?php
                                 $date = strtotime( get_field( 'new_in_town' ) );
                                 $today = strtotime( date( 'Y-m-d' ) );
                                 if ( $date != null && $date > $today ) : 
-                                    echo ' <span class="new-in-town">New!</span>';
+                    ?>
+                                        &nbsp;<span class="new-in-town">New!</span>
+                    <?php 
                                 endif;
-                                echo '</li>';
+                    ?>
+                                    </li>
+                    <?php
                             endif;
                         endwhile;
-                        echo "\n";
-                        echo '</ul>';
+                    ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
                     endif;
-                endforeach;
-            ?>
+                endforeach
+                    ?>
             </section>
         </section>
     </div>
     <div class="main-footer-container container">
         <footer class="main-footer">
-            <?php if ( function_exists('yoast_breadcrumb') ) : ?><p class="post-breadcrumbs"><?php yoast_breadcrumb(); ?></p><?php elseif ( function_exists( 'bcn_display' ) ) : ?><p class="post-breadcrumbs"><?php bcn_display(); ?></p><?php endif;?>
+        <?php
+            if ( function_exists('yoast_breadcrumb') ) :
+        ?>
+            <p class="post-breadcrumbs">
+                <?php yoast_breadcrumb(); ?>
+            </p>
+        <?php
+            endif;
+        ?>
         </footer>
     </div>
 </main>

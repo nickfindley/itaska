@@ -173,6 +173,30 @@ if (tribe_is_event() || tribe_is_event_category() || tribe_is_in_main_loop() || 
 
 add_action( 'wp_enqueue_scripts', 'deregister_tribe_styles' );
 
+function use_list_view_for_categories( $query ) {
+	// Disregard anything except a main archive query
+	if ( is_admin() || ! $query->is_main_query() || ! is_archive() ) return;
+
+	// We only want to catch *event* category requests being issued
+	// against something other than list view
+	if ( ! $query->get( 'tribe_events_cat' ) ) return;
+	if ( tribe_is_list_view() ) return;
+
+	// Get the term object
+	$term = get_term_by( 'slug', $query->get( 'tribe_events_cat' ), Tribe__Events__Main::TAXONOMY );
+
+	// If it's invalid don't go any further
+	if ( ! $term ) return;
+
+	// Get the list-view taxonomy link and redirect to it
+	header( 'Location: ' . tribe_get_listview_link( $term->term_id ) );
+	exit();
+}
+ 
+// Use list view for category requests by hooking into pre_get_posts for event queries
+add_action( 'tribe_events_pre_get_posts', 'use_list_view_for_categories' );
+
+
 function deregister_tribe_styles() {
 	
 	wp_deregister_style( 'tribe-events-full-pro-calendar-style' );

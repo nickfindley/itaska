@@ -5,13 +5,13 @@
 if ( is_plugin_active( 'wordpress-seo-premium/wp-seo-premium.php' ) && function_exists( 'tribe_is_event' ) ) :
 
 	/* add nofollow metatag to header of past events */
-	add_filter( "wpseo_robots", function( $robots )
-    {
-        if ( tribe_is_past_event() == true) :
-            return "noindex,follow";
-        endif;
-        return $robots;
-	});
+	// add_filter( "wpseo_robots", function( $robots )
+    // {
+    //     if ( tribe_is_past_event() == true) :
+    //         return "noindex,follow";
+    //     endif;
+    //     return $robots;
+	// });
 
     /* exclude past events from the sitemap */ 
 	function dutchtown_expired_events( $ids )

@@ -1,34 +1,4 @@
-body {
-    @include media-breakpoint-up(sm) {
-        padding-top: 58px;
-    }
-
-    @include media-breakpoint-up(md) {
-        padding-top: 89px;
-    }
-
-    @include media-breakpoint-up(lg) {
-        padding-top: 98px;
-    }
-
-    &.body-subsite {
-        @include media-breakpoint-up(sm) {
-            padding-top: 59px;
-        }
-
-        @include media-breakpoint-up(md) {
-            padding-top: 133px;
-        }
-
-        @include media-breakpoint-up(lg) {
-            padding-top: 143px;
-        }
-    }
-
-    &.blog {
-        margin-top: 2rem;
-    }
-}
+// see _base.scss for padding to accomodate site nav
 
 .navbar-wrapper.fixed-top {
     padding-right: 0 !important;
