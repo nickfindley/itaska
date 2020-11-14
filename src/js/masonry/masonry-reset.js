@@ -29,7 +29,6 @@ function scrollListener(){
         if (scrollcount < 2) {
             scrollResetLayout();
             window.removeEventListener("scroll", scrollListener);
-            console.log('done this ' + scrollcount)
         }
     }, 1200);
 };
