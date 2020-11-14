@@ -58,6 +58,15 @@
             .masonry-block[id] {
                 margin-top: calc(var(--nav-padding) * -1 - var(--bs-gutter-x));
                 padding-top: calc(var(--nav-padding) + var(--bs-gutter-x));
+                position: relative;
+
+                .card {
+                    z-index: 3;
+                }
+
+                .card-body {
+                    padding: 1.5rem 1rem;
+                }
             }
 
 
@@ -78,8 +87,10 @@
 
         h2.place-category {
             font-size: 1.5rem;
+            display: flex;
+            justify-content: space-between;
             letter-spacing: -.01rem;
-            line-height: 1.5;
+            line-height: 1;
             margin-bottom: $paragraph-margin-bottom / 4;
             padding: 0 !important;
 
@@ -93,6 +104,11 @@
 
             a {
                 border-bottom: 0;
+            }
+
+            i {
+                color: rgba($primary, .75);
+                font-size: 87.5%;
             }
         }
     }

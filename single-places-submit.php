@@ -31,7 +31,8 @@ get_header();
         </header>
         <section class="main-content">
             <div class="main-content-container container">
-                <?php echo do_shortcode( '[gravityform id=7 title=false description=true ajax=true]' ); ?>
+                <?php echo do_shortcode( '[forminator_form id="397829"]' ); ?>
+                <p class="small muted">Places are added to the directory at the discretion of DutchtownSTL and as time and resources permit. Inclusion is not guaranteed.</p> 
             </div>
         </section>
         <div class="main-footer-container container">

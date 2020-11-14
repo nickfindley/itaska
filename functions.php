@@ -38,6 +38,7 @@ require get_template_directory() . '/functions/acf/front-page-posts.php';
 require get_template_directory() . '/functions/acf/front-page-social.php';
 require get_template_directory() . '/functions/acf/masonry-block.php';
 require get_template_directory() . '/functions/acf/member-card.php';
+require get_template_directory() . '/functions/acf/options.php';
 
 if ( $blog_id == 1 ) :
     require get_template_directory() . '/functions/events-calendar.php';

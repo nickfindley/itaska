@@ -11,16 +11,69 @@
 
 get_header(); ?>
 <main class="main-single-place" id="content">
+    <?php
+        if ( get_field( 'places_page_image' , 'option' ) ) :
+    ?>
+    <header class="main-header main-has-featured-image">
+        <div class="main-header-image-container container">
+            <div class="main-header-image">
+                <?php echo wp_get_attachment_image( get_field( 'places_page_image', 'option' ), 'full' ); ?>
+            </div>
+        </div>
+        <div class="main-header-container container">
+            <h1><a href="/places/">
+            <?php
+                if ( get_field( 'places_page_pre_title', 'option' ) ) :
+                    the_field( 'places_page_pre_title', 'option' );
+                endif;
+                the_field( 'places_page_title', 'option' );
+                if ( get_field( 'places_page_post_title', 'option' ) ) :
+                    the_field( 'places_page_post_title', 'option' );
+                endif;
+            ?>
+            </a></h1>
+    <?php
+        else :
+    ?>
     <header class="main-header">
-		<div class="main-header-container container">
-			<h1>The Dutchtown Places Directory</h1>
-		</div>
+        <div class="main-header-container container">
+            <h1><a href="/places/">
+            <?php
+                if ( get_field( 'places_page_pre_title', 'option' ) ) :
+            ?>
+                <span class="pre-header-title"><?php the_field( 'places_page_pre_title', 'option' ); ?></span>
+            <?php
+                endif;
+                the_field( 'places_page_title', 'option' );
+                if ( get_field( 'places_page_post_title', 'option' ) ) :
+            ?>
+                <span class="post-header-title"><?php the_field( 'places_page_post_title', 'option' ); ?></span>
+            <?php
+                endif;
+            ?>
+            </a></h1>
+    <?php
+        endif;
+    ?>
+            <section class="main-meta">
+                <ul>
+                    <?php dutchtown_header_social_links(); ?>
+                </ul>
+            </section>
+        </div>
     </header>
     <div class="places-container container places-new">
+        
+        <?php
+            if ( get_field( 'places_page_content', 'option' ) ) :
+        ?>
         <section class="places-content">
-            <p>Welcome to the Dutchtown Places Directory. Find businesses, services, and landmarks here in Dutchtown, Gravois Park, Marine Villa, Mount Pleasant, and Cherokee Street.</p>
-            <p>The information in the Dutchtown Places Directory is accurate as of the time of publication. If you find an inaccuracy, please <a href="/contact/">contact us</a>. To add a place please <a href="/places/submit/">complete our submission form</a>.</p>
+            <?php the_field( 'places_page_content', 'option' ); ?>
         </section>
+        <?php  
+            endif;
+        ?>
+
         <section class="places-list" id="places-list">
             <?php
                 $custom_terms = get_terms('place_category');
@@ -30,7 +83,6 @@ get_header(); ?>
             <?php
                 //  https://wordpress.stackexchange.com/questions/66219/list-all-posts-in-custom-post-type-by-taxonomy
                 $custom_terms = get_terms('place_category');
-
                 foreach( $custom_terms as $custom_term ) :
                     wp_reset_query();
                     $args = array(
@@ -69,7 +121,9 @@ get_header(); ?>
 
             <section class="places-masonry masonry-container">
             <?php
+                $term_count = 0;
                 foreach( $custom_terms as $custom_term ) :
+                    $term_count++;
                     wp_reset_query();
                     $args = array(
                         'post_type' => 'places',
@@ -100,10 +154,11 @@ get_header(); ?>
                     $loop = new WP_Query($args);
 
                     remove_filter('posts_fields','wpcf_create_temp_column'); // Remove the temporary column filter
-                    remove_filter('posts_orderby', 'wpcf_sort_by_temp_column'); // Remove the temporary order filter 
-
+                    remove_filter('posts_orderby', 'wpcf_sort_by_temp_column'); // Remove the temporary order filter
+                    
                     if ( $loop->have_posts() ) :
                     ?>
+
                     <div class="masonry-block" id="<?php echo $custom_term->slug; ?>">
                         <div class="card">
                             <div class="card-body">
@@ -120,15 +175,13 @@ get_header(); ?>
                             if ( get_field( 'closed' ) == false && get_field( 'hide_from_listings' ) == false  ) :
                     ?>
                                     <li>
-                                        <a href="<?php the_permalink(); ?>">
-                                            <?php the_title(); ?>
-                                        </a>
+                                        <a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a>
                     <?php
                                 $date = strtotime( get_field( 'new_in_town' ) );
                                 $today = strtotime( date( 'Y-m-d' ) );
                                 if ( $date != null && $date > $today ) : 
                     ?>
-                                        &nbsp;<span class="new-in-town">New!</span>
+                                        <span class="new-in-town">New!</span>
                     <?php 
                                 endif;
                     ?>

@@ -79,9 +79,12 @@
         font-size: 150%;
         font-weight: 400;
         letter-spacing: .125rem;
-        text-align: center;
         text-transform: uppercase;
 
+        @include media-breakpoint-up(md) {
+            text-align: center;
+        }
+        
         a {
             border-bottom: 0;
             font-weight: 700;
