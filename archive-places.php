@@ -24,11 +24,15 @@ get_header(); ?>
             <h1><a href="/places/">
             <?php
                 if ( get_field( 'places_page_pre_title', 'option' ) ) :
-                    the_field( 'places_page_pre_title', 'option' );
+            ?>
+                <span class="pre-header-title"><?php the_field( 'places_page_pre_title', 'option' ); ?></span>
+            <?php
                 endif;
                 the_field( 'places_page_title', 'option' );
                 if ( get_field( 'places_page_post_title', 'option' ) ) :
-                    the_field( 'places_page_post_title', 'option' );
+            ?>
+                <span class="post-header-title"><?php the_field( 'places_page_post_title', 'option' ); ?></span>
+            <?php
                 endif;
             ?>
             </a></h1>
