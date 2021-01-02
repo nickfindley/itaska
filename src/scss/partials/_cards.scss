@@ -143,6 +143,10 @@
             font-weight: 300;
             line-height: 1.5;
             margin-bottom: $paragraph-margin-bottom / 4;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
 
         .member-title {
@@ -172,5 +176,131 @@
     .card-footer {
         font-size: 75%;
         padding: 0 1rem 1rem;
+    }
+}
+
+.card-black-yellow .card {
+    color: rgba($primary, .75);
+
+    h3 {
+        color: rgba($primary, .875);
+    }
+
+    a {
+        border-bottom: 1px solid rgba($primary, .75);
+        color: rgba($primary, .875);
+
+        &:hover {
+            border-bottom: 1px solid rgba($primary, .875);
+            color: $primary;
+        }
+    }
+}
+
+.card-yellow-black .card {
+    color: rgba($black, .75);
+
+    h3 {
+        color: rgba($black, .875);
+    }
+
+    a {
+        border-bottom: 1px solid rgba($black, .75);
+        color: rgba($black, .875);
+
+        &:hover {
+            border-bottom: 1px solid rgba($black, .875);
+            color: $black;
+        }
+    }
+}
+
+.card-wrapper.card-black-yellow .card-flora {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='%23000000' x='0px' y='0px' viewBox='0 0 288 18.68' style='enable-background:new 0 0 288 18.68;' xml:space='preserve'%3E%3Cpolygon points='0,18.68 0,10.65 13.96,10.65 17.28,7.26 20.04,10.65 34.56,10.65 34.56,17.53 69.12,17.53 69.12,10.65 83.08,10.65 86.4,7.26 89.16,10.65 103.68,10.65 126.72,5.56 126.72,3.39 140.68,3.39 144,0 146.76,3.39 161.28,3.39 161.28,5.56 184.32,10.65 198.28,10.65 201.6,7.26 204.35,10.65 218.88,10.65 218.88,17.53 253.44,17.53 253.44,10.65 267.4,10.65 270.72,7.26 273.47,10.65 288,10.65 288,18.68 '/%3E%3C/svg%3E");
+
+    &.card-has-photo {
+        img {
+            border: 1rem solid $black;
+        }
+    }
+
+    .card-body {
+        background: $black;
+    }
+
+    .card-footer {
+        background: $primary;
+        color: $black;
+    }
+}
+
+.card-wrapper.card-yellow-black .card-flora {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='%23fce409' x='0px' y='0px' viewBox='0 0 288 18.68' style='enable-background:new 0 0 288 18.68;' xml:space='preserve'%3E%3Cpolygon points='0,18.68 0,10.65 13.96,10.65 17.28,7.26 20.04,10.65 34.56,10.65 34.56,17.53 69.12,17.53 69.12,10.65 83.08,10.65 86.4,7.26 89.16,10.65 103.68,10.65 126.72,5.56 126.72,3.39 140.68,3.39 144,0 146.76,3.39 161.28,3.39 161.28,5.56 184.32,10.65 198.28,10.65 201.6,7.26 204.35,10.65 218.88,10.65 218.88,17.53 253.44,17.53 253.44,10.65 267.4,10.65 270.72,7.26 273.47,10.65 288,10.65 288,18.68 '/%3E%3C/svg%3E");
+
+    &.card-has-photo {
+        img {
+            border: 1rem solid $primary;
+        }
+    }
+
+    .card-body {
+        background: $primary;
+    }
+
+    .card-footer {
+        background: $black;
+        color: $primary;
+    }
+}
+
+.card-wrapper .card-flora {
+    background-color: transparent;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: none;
+    filter: drop-shadow($box-shadow);
+    padding-top: 6%;
+    text-align: left;
+
+    &.card-has-photo {
+        img {
+            border-bottom: 0;
+            border-radius: 0;
+            padding: 0;
+        }
+    }
+
+    &:not(.card-has-photo) {
+        align-items: unset;
+        flex-direction: column;
+    }
+
+    .card-title a {
+        border-bottom: 0 !important;
+    }
+
+    .card-body {
+        display: flex;
+        height: 100%;
+    }
+
+    &:not(.card-has-photo) .card-body {
+        padding-top: $paragraph-margin-bottom;
+    }
+
+    .card-body-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .card-footer {
+        border: 0;
+        padding: 1rem;
+
+        &:last-child {
+            border-radius: 0;
+        }
     }
 }

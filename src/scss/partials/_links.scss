@@ -6,21 +6,24 @@ a {
 
     &:hover {
         border-bottom: 2px solid $black;
-        color: $black;
-        // text-decoration: none;     
+        color: $black; 
     }
 }
 
 h1 a,
 h2 a,
 h3 a {
-    border: none;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+        border-bottom: 2px solid $black;
+        color: $black;
+    }
 }
 
 
 // provide padding to anchor elements
 // to avoid being hidden under navbar
-// px = navbar height + 10px buffer
 h2[id],
 h3[id],
 h4[id],
@@ -28,29 +31,15 @@ h5[id],
 h6[id] {
     display: block;
     position: relative;
-    margin-top: -68px;
-    padding-top: 68px;
-
-    @include media-breakpoint-up(md) {
-        margin-top: -93px;
-        padding-top: 93px;
-    }
-
-    &#blog-2 {
-        @include media-breakpoint-up(md) {
-            margin-top: -139px;
-            padding-top: 139px;
-        }
-    }
-
-    &.body-subsite {
-         @include media-breakpoint-up(md) {
-            margin-top: -139px;
-            padding-top: 139px;
-        }
-    }
+    margin-top: calc((var(--nav-padding) + #{$paragraph-margin-bottom}) * -1); 
+    padding-top: calc(var(--nav-padding) + #{$paragraph-margin-bottom});
+    z-index: 0;
 }
 
 .item-header .item-meta .icon-link a {
     border-bottom: 0;
+}
+
+.stretched-link {
+    border-bottom: 0 !important;
 }

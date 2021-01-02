@@ -16,6 +16,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="<?php echo autoversion( '/wp-content/themes/itaska/dist/css/main.min.css' ); ?>"> -->
 	<link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
     <?php get_template_part( 'head/favicons' ); ?>	

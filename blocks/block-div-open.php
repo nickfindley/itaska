@@ -8,9 +8,13 @@ else :
 endif;
 
 if ( ! empty( $block['class_name'] ) ) :
-    $class_name = ' ' . $block['class_name'];
+    $class_name .= ' ' . $block['class_name'];
 else : 
     $class_name = '';
+endif;
+
+if ( ! empty( $block['align'] ) ) :
+    $class_name .= ' align-' . $block['align'];
 endif;
 
 $block_type = get_field( 'block_type' );

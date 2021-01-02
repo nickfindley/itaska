@@ -49,6 +49,13 @@ function dutchtown_enqueue_scripts()
     // wp_enqueue_script( 'dutchtown_scripts' );
 
     wp_enqueue_style( 'main', autoversion( '/wp-content/themes/itaska/dist/css/main.min.css' ) );
+
+    // wp_deregister_style( 'acf' );
+    // wp_deregister_style( 'acf-field-group' );
+    // wp_deregister_style( 'acf-global' );
+    // wp_deregister_style( 'acf-input' );
+    // wp_deregister_style( 'acf-pro-input' );
+    // wp_deregister_style( 'acf-datepicker' );
 }
 add_action( 'wp_enqueue_scripts', 'dutchtown_enqueue_scripts' );
 

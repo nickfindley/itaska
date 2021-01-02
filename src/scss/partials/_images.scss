@@ -1,3 +1,10 @@
+video {
+    box-shadow: $box-shadow;
+    height: auto;
+    max-width: 100%;
+    min-width: 100%;
+}
+
 img {
     height: auto;
     max-width: 100%;
@@ -12,6 +19,8 @@ img {
     }
 }
 
+.wp-block-image.img-no-shadow img,
+.wp-block-image.no-shadow img,
 .wp-block-image.img-no-shadow figure img,
 .wp-block-image.no-shadow figure img {
     box-shadow: 0 0 0 transparent !important;

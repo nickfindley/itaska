@@ -5,6 +5,9 @@ require get_template_directory() . '/functions/setup.php';
 require get_template_directory() . '/functions/widgets-init.php';
 require get_template_directory() . '/functions/scripts.php';
 
+require get_template_directory() . '/functions/utilities/camel-case.php';
+require get_template_directory() . '/functions/utilities/string-convert.php';
+
 require get_template_directory() . '/functions/archive-title.php';
 require get_template_directory() . '/functions/autoversion.php';
 require get_template_directory() . '/functions/block-events.php';
@@ -36,9 +39,16 @@ require get_template_directory() . '/functions/yoast.php';
 require get_template_directory() . '/functions/acf/div-open-close.php';
 require get_template_directory() . '/functions/acf/front-page-posts.php';
 require get_template_directory() . '/functions/acf/front-page-social.php';
+require get_template_directory() . '/functions/acf/flora-block.php';
 require get_template_directory() . '/functions/acf/masonry-block.php';
 require get_template_directory() . '/functions/acf/member-card.php';
 require get_template_directory() . '/functions/acf/options.php';
+require get_template_directory() . '/functions/acf/poll.php';
+
+require get_template_directory() . '/functions/polls/poll-cpt-taxonomy.php';
+require get_template_directory() . '/functions/polls/poll-fields-acf.php';
+require get_template_directory() . '/functions/polls/poll-form.php';
+require get_template_directory() . '/functions/polls/poll-results.php';
 
 if ( $blog_id == 1 ) :
     require get_template_directory() . '/functions/events-calendar.php';

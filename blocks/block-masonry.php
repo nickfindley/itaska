@@ -25,25 +25,20 @@ $image = get_field( 'image' );
 <div class="masonry-block">
     <div class="card">
         <?php
-            if ( $image ) :
-        ?> 
-         <div class="card-image">
-            <?php echo wp_get_attachment_image( $image, 'medium', false, array( 'class' => 'card-img-top' ) ); ?>
-        </div>
-        <?php
+            if ( $image ) : 
+                echo '<div class="card-image">';
+                echo wp_get_attachment_image( $image, 'medium', false, array( 'class' => 'card-img-top' ) );
+                echo '</div>';
             endif;
         ?>
         <div class="card-body">
         <?php
             if ( $title_link ) :
-        ?>
-            <h2><a href="<?php echo $title_link; ?>"><?php echo $title; ?></a></h2>
-        <?php
-            else :
-        ?>
-            <h2><?php echo $title; ?></h2>
-        <?php
+                echo '<h3><a href="' . $title_link . '">' . $title . '&nbsp;<i class="fas fa-link"></i></a></h3>';
+            else : 
+                echo '<h3>' . $title . '</h3>';
             endif;
+
             echo $body; 
         ?>
         </div>

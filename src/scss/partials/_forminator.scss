@@ -149,6 +149,7 @@ $input-selected-border-color: rgba($black, .5);
     }
 
     span[aria-hidden] {
+        align-self: center;
         background-color: $input-radio-bg-color;
         border: 1px solid $input-border-color;
         flex: 0 0 1.25rem;
@@ -618,6 +619,7 @@ i.forminator-loading:before {
     .forminator-question {
         font-size: 175%;
         font-weight: 700;
+        line-height: 1.25;
     }
 
     .forminator-description {
