@@ -59,46 +59,42 @@ get_header(); ?>
 
             
             <aside class="archive-sidebar">
-            <?php 
-                if ( function_exists( 'tribe_is_event' ) ) :
-            ?>
-                <header>
-                    <h2>Upcoming Events</h2>
-                </header>
-                <?php
-                    $args = array(
-                        'post_type' => array(Tribe__Events__Main::POSTTYPE),
-                        'posts_per_page' => -1,
-                        'tag' => $tag->slug,
-                        'meta_key' => '_EventStartDate',
-                        'tribeHideRecurrence' => true,
-                        'meta_query' => array(
-                            array (
-                                'key' => '_EventStartDate',
-                                'value' => date( 'Y-m-d G:i:s'),
-                                'compare' => '>=',
-                                'type' => 'DATE'
-                            )
-                        ),
-                    );
-
-                    $upcoming_events_query = new WP_Query( $args );
-                    
-                    if ( $upcoming_events_query->have_posts() ) :
-                        while ( $upcoming_events_query->have_posts() ) :
-                            $upcoming_events_query->the_post();
-                            get_template_part( 'content/archive-upcoming-event' );
-                        wp_reset_postdata();
-                        endwhile;
-                    else :
-                        ?><p>We didn't find any upcoming events tagged &ldquo;<?php single_tag_title(); ?>.&rdquo; Visit our <a href="/calendar/">Dutchtown Calendar</a> to find more events.</p><?php
-                    endif;
-                endif;
-            ?>
                 <header class="search-header">
                     <h2>Search DutchtownSTL</h2>
                 </header>
                 <?php get_search_form(); ?>
+                
+                <header>
+                    <h2>More Tags</h2>
+                </header>
+                <?php
+                    $exclude = array(
+                        'art-lab',
+                        'class',
+                        'hop-shop',
+                        'intersect',
+                        'tdlc',
+                        'thomas-dunn',
+                        'wood-shop',
+                        'youth-activities'
+                    );
+
+                    $tag_ids = array();
+                    foreach( $exclude as $e ) :
+                        $tag = get_term_by('slug', $e,'post_tag');
+                        $tag_ids[] =  $tag->term_id;
+                    endforeach;
+
+                    $args = array(
+                        'exclude' => $tag_ids,
+                        'separator' => ' · ',
+                        'smallest' => .75,
+                        'largest' => 1.5,
+                        'unit' => 'rem'
+                    );
+
+                    echo '<p>' . wp_tag_cloud( $args ) . '</p>';
+                ?>
             </aside>
         </div>
     </div>
