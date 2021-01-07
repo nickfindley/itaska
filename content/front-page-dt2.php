@@ -28,13 +28,13 @@
 <section class="main-content">
     <div class="main-content-container container">
         <div class="row">
-            <div class="cid-content">
+            <div class="dt2-content">
                 <?php the_content(); ?>
             </div>
 
-            <div class="cid-events">
+            <div class="dt2-events">
                 <h2>
-                    Upcoming CID Events
+                    Upcoming DT2 Events
                     <span class="subtitle">More events at <a href="https://www.dutchtownstl.org/calendar/">dutchtownstl.org/calendar</a></span>
                 </h2>
                 <?php
@@ -51,7 +51,7 @@
                         array(
                             'taxonomy' => Tribe__Events__Main::TAXONOMY,
                             'field' => 'slug',
-                            'terms' => 'dutchtown-cid'
+                            'terms' => 'dt2'
                         )
                     )
                 ));
@@ -62,20 +62,20 @@
                     endwhile;
                     wp_reset_postdata();
                 else :
-                    ?><p>There are no Dutchtown CID events currently scheduled.</p><?php
+                    ?><p>There are no DT2 events currently scheduled.</p><?php
                 endif;
                 restore_current_blog();
                 ?>
 
-                <p class="all-events"><a href="/calendar/category/dutchtown-cid/list/">See all CID events</a> <i class="fas fa-caret-right"></i></p>
+                <p class="all-events"><a href="/calendar/category/dutchtown-cid/list/">See all DT2 events</a> <i class="fas fa-caret-right"></i></p>
             </div>
         </div>
 
         <div class="row">
-            <div class="cid-news">
+            <div class="dt2-news">
                 <h2>
-                    Dutchtown CID News
-                    <span class="subtitle">Find more CID updates at <a href="https://www.dutchtownstl.org/news/">dutchtownstl.org/news</a></span>
+                    DT2 News
+                    <span class="subtitle">Find more DT2 updates at <a href="https://www.dutchtownstl.org/news/">dutchtownstl.org/news</a></span>
                 </h2>
                 <div class="masonry-container front-page-posts">
                 <?php
