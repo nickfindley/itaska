@@ -1,0 +1,49 @@
+.cid-row {
+    @extend .row;
+}
+
+.cid-content {
+    @extend .col-md-6;
+}
+
+.cid-events {
+    @extend .col-md-6;
+    font-size: 75%;
+
+    .item-header {
+        h3 {
+            font-size: 2rem;
+        }
+
+        .item-meta ul {
+            font-size: .75rem;
+        }
+    }
+
+    .all-events {
+        font-size: 1.25rem;
+        font-weight: 700;
+        padding-left: $paragraph-margin-bottom / 2;
+        padding-right: $paragraph-margin-bottom / 2;
+    }
+}
+
+.cid-news {
+    .subtitle a {
+        border-bottom: 2px solid rgba($black, .875);
+
+        &:hover {
+            border-bottom: 2px solid $black;
+        }
+    }
+
+    .item-header {
+        h3 {
+            font-size: 2rem;
+        }
+
+        .item-meta ul {
+            font-size: .75rem;
+        }
+    }
+}

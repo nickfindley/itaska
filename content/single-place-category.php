@@ -40,7 +40,7 @@
         <?php endif; ?>
 
         <?php if ( $telephone || $website ) : ?>
-        <p class="place-contact">
+        <p>
             <?php if ( $telephone ) : ?>
                 <a href="tel:<?php echo $telephone ; ?>" title="Dial <?php echo $telephone ; ?>"><?php echo $telephone ; ?></a>
             <?php endif; ?>

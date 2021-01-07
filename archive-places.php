@@ -167,7 +167,7 @@ get_header(); ?>
                         <div class="card">
                             <div class="card-body">
                                 <h2 class="place-category">
-                                    <a href="/places/category/<?php echo $custom_term->slug; ?> /">
+                                    <a href="/places/category/<?php echo $custom_term->slug; ?>/">
                                         <?php echo $custom_term->name; ?>
                                     </a>
                                     <a href="#places-list"><span class="sr-only">Top</span><i class="fas fa-caret-up"></i></a>
