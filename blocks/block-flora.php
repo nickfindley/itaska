@@ -19,7 +19,6 @@ endif;
 $title = get_field( 'title' );
 $title_link = get_field( 'title_link' );
 $body = get_field( 'body' );
-$footer = get_field( 'footer' );
 
 if ( get_field( 'color_scheme' ) == 'black_yellow' ) :
     $class_name .= ' card-black-yellow';
@@ -61,10 +60,10 @@ endif;
             </div>
         </div>
     <?php
-        if ( $footer ) :
+        if ( get_field( 'footer' ) ) :
     ?>
         <div class="card-footer">
-            <?php echo $footer; ?>
+            <?php the_field( 'footer' ); ?>
         </div>
     <?php
         endif;

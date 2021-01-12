@@ -44,6 +44,7 @@ require get_template_directory() . '/functions/acf/masonry-block.php';
 require get_template_directory() . '/functions/acf/member-card.php';
 require get_template_directory() . '/functions/acf/options.php';
 require get_template_directory() . '/functions/acf/poll.php';
+require get_template_directory() . '/functions/acf/quick-contact.php';
 
 require get_template_directory() . '/functions/polls/poll-cpt-taxonomy.php';
 require get_template_directory() . '/functions/polls/poll-fields-acf.php';
