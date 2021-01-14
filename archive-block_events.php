@@ -32,7 +32,7 @@ get_header(); ?>
                     'compare' => '>='
                 ),
                 'orderby' => array(
-                    'block_event_date' => 'DESC'
+                    'block_event_date' => 'ASC'
                 ),
                 'posts_per_page' => -1,
             );
