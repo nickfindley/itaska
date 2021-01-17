@@ -1,6 +1,6 @@
 .callout-box {
     font-size: .875rem;
-    line-height: 1.5;
+    line-height: 1.75;
     margin: 0 0 $paragraph-margin-bottom;
     padding: $paragraph-margin-bottom / 2;
     position: relative;
@@ -18,17 +18,26 @@
         }
     }
 
+    @include media-breakpoint-up(md) {
+        font-size: 1rem;
+        padding: $paragraph-margin-bottom * .75;
+    }
+
     @include media-breakpoint-up(lg) {
         width: 33.333%;
     }
 
     @include media-breakpoint-up(xl) {
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
 
     h4 {
         font-size: 1.75rem;
         margin: 0 0 $paragraph-margin-bottom / 2;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 2rem;
+        }
 
         a {
             border-bottom: 0;
