@@ -37,6 +37,7 @@ require get_template_directory() . '/functions/temp-table.php';
 require get_template_directory() . '/functions/yoast.php';
 
 require get_template_directory() . '/functions/acf/callout-box.php';
+require get_template_directory() . '/functions/acf/category-image.php';
 require get_template_directory() . '/functions/acf/div-open-close.php';
 require get_template_directory() . '/functions/acf/front-page-posts.php';
 require get_template_directory() . '/functions/acf/front-page-social.php';
