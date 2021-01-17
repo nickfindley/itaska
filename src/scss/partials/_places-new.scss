@@ -60,10 +60,12 @@
                 padding-top: calc(var(--nav-padding) + var(--bs-gutter-x));
                 position: relative;
 
-                &:target {
-                    animation: highlight 2s ease;
-                    animation-delay: .25s;
-                    transition: all 0.5s ease;       
+                @include media-breakpoint-up(sm) {
+                    &:target {
+                        animation: highlight 2s ease;
+                        animation-delay: .25s;
+                        transition: all 0.5s ease;       
+                    }
                 }
                 
                 @keyframes highlight {

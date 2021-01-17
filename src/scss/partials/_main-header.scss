@@ -41,7 +41,7 @@
             display: block;
             @include regular;
             font-size: .75rem;
-            letter-spacing: .25rem;
+            letter-spacing: .0625rem;
             margin-left: .2rem;
             text-transform: uppercase;
 
@@ -51,6 +51,7 @@
 
             @include media-breakpoint-up(md) {
                 font-size: 1.25rem;
+                letter-spacing: .125rem;
             }
 
             @include media-breakpoint-up(lg) {
@@ -59,6 +60,7 @@
 
             @include media-breakpoint-up(xl) {
                 font-size: 1.75rem;
+                letter-spacing: .25rem;
                 margin-left: .25rem;
             }
         }
