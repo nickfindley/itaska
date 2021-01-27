@@ -44,7 +44,7 @@ p.post-breadcrumbs {
     .breadcrumb_last,
     .current-item {
         color: rgba($black, .875);
-        @include bold;
+        font-weight: 700;
     }
 }
 

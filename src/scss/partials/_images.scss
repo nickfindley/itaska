@@ -31,6 +31,7 @@ figure > a {
 
     &:hover {
         background-color: transparent;
+        border-bottom: 0;
     }
 }
 
@@ -113,8 +114,8 @@ iframe {
 
 figcaption {
     color: rgba($black, .625);
-    @include light;
     font-size: .75rem;
+    font-weight: 300;
     margin: $paragraph-margin-bottom / 2 0;
     text-align: center;
 

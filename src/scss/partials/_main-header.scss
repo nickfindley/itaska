@@ -39,7 +39,6 @@
         span {
             color: rgba($black, .75);
             display: block;
-            @include regular;
             font-size: .75rem;
             letter-spacing: .0625rem;
             margin-left: .2rem;
@@ -92,8 +91,8 @@
 
     .main-meta {
         ul {
-            @include light;
             font-size: .75rem;
+            font-weight: 300;
             letter-spacing: .0625rem;
             list-style-type: none;
             margin: 1rem 0 0;

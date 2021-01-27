@@ -44,8 +44,8 @@
     }
 
     .navbar-brand {
-        @include bold;
         font-size: 1rem;
+        font-weight: 700;
         letter-spacing: .2rem;
 
         @include media-breakpoint-up(md) {
@@ -66,12 +66,18 @@
     }
 
     .nav-link {
+        white-space: nowrap;
+
         @include media-breakpoint-up(md) {
-            @include light-condensed;
+            font-family: 'AvenirCn', sans-serif;
+            font-style: normal;
+            font-weight: 300;
         }
 
         @include media-breakpoint-up(lg) {
-            @include light;
+            font-family: 'Avenir', sans-serif;
+            font-style: normal;
+            font-weight: 300;
         }
     }
 }
@@ -134,18 +140,22 @@ li.dropdown .dropdown-menu {
     }
 }
 
-.navbar-dark .navbar-nav .active > .nav-link,
-.navbar-dark .navbar-nav .show > .nav-link,
-.navbar-dark .navbar-nav .current_page_item > .nav-link,
-.navbar-dark .navbar-nav .current_page_parent > .nav-link {
-    @include media-breakpoint-up(md) {
-        @include light-condensed;
-    }
+// .navbar-dark .navbar-nav .active > .nav-link,
+// .navbar-dark .navbar-nav .show > .nav-link,
+// .navbar-dark .navbar-nav .current_page_item > .nav-link,
+// .navbar-dark .navbar-nav .current_page_parent > .nav-link {
+//     @include media-breakpoint-up(md) {
+//         // font-family: 'AvenirCn', sans-serif;
+//         font-style: normal;
+//         font-weight: 300;
+//     }
 
-    @include media-breakpoint-up(lg) {
-        @include light;
-    }
-}
+//     @include media-breakpoint-up(lg) {
+//         // font-family: 'Avenir', sans-serif;
+//         font-style: normal;
+//         font-weight: 300;
+//     }
+// }
 
 .navbar-dark .navbar-nav .nav-link {
     color: rgba($primary, .75);
@@ -191,7 +201,8 @@ li.dropdown .dropdown-menu {
 
     .nav-link {
         color: $black;
-        @include light;
+        font-style: normal;
+        font-weight: 300;
         font-size: .75rem;
         letter-spacing: 0;
         padding: .25rem 0;
@@ -232,9 +243,12 @@ li.dropdown .dropdown-menu {
 }
 
 #navbarTopRight {
-    @include media-breakpoint-down(sm) {
-        display: none;
-    }  
+    // @include media-breakpoint-down(md) {
+    //     display: none;
+    //     .sr-only {
+
+    //     }
+    // }  
 
     @include media-breakpoint-up(md) {
         // ul li:last-child .nav-link {
@@ -243,6 +257,18 @@ li.dropdown .dropdown-menu {
 
         ul li a.nav-link {
             padding: .125rem .5rem;
+
+            .sr-nav {
+                position: absolute !important;
+                width: 1px !important;
+                height: 1px !important;
+                padding: 0 !important;
+                margin: -1px !important;
+                overflow: hidden !important;
+                clip: rect(0, 0, 0, 0) !important;
+                white-space: nowrap !important;
+                border: 0 !important;
+            }
         }
     }
 }
@@ -305,7 +331,7 @@ li.dropdown .dropdown-menu {
 
     .nav-link {
         color: rgba($primary,.75);
-        @include regular;
+        // @include regular;
         font-size: .875rem;
         letter-spacing: 0;
         line-height: 1.375rem;
@@ -384,7 +410,7 @@ li.dropdown .dropdown-menu {
             @include media-breakpoint-up(md) {
                 background-color: transparent;
                 color: $black;
-                @include light-condensed;
+                // @include light-condensed;
 
                 &:active,
                 &:focus,
@@ -394,7 +420,7 @@ li.dropdown .dropdown-menu {
                 }
 
                 @include media-breakpoint-up(lg) {
-                    @include light;
+                    // @include light;
                 }
             }
         }

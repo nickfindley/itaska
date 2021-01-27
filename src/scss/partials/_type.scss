@@ -3,9 +3,10 @@ html {
 }
 
 body {
-    @include regular;
     color: $body-color;
+    font-family: 'Avenir', sans-serif;
     font-size: 1rem;
+    font-weight: 400;
     font-variant-numeric: proportional-nums;
     line-height: 2.25;
 
@@ -20,7 +21,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    @include bold;
+    font-weight: 700;
     line-height: 1;
 
     span.subtitle {

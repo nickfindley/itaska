@@ -27,6 +27,10 @@
     border-bottom: 0;
     padding: $paragraph-margin-bottom $paragraph-margin-bottom $paragraph-margin-bottom / 2;
 
+    .modal-title {
+        z-index: 1;
+    }
+
     h5 {
         color: rgba($black, .875);
         font-weight: 400;

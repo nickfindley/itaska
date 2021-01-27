@@ -108,6 +108,22 @@ if( function_exists('acf_add_local_field_group') ):
                 'default_value' => '',
                 'placeholder' => '',
             ),
+            array(
+                'key' => 'field_5f40520c5ee0yt',
+                'label' => 'YouTube URL',
+                'name' => 'youtube_url',
+                'type' => 'url',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+            ),
         ),
         'location' => array(
             array(
