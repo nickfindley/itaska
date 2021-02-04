@@ -20,19 +20,19 @@ get_header(); ?>
         <div class="archive-time">
             <section class="archive-past-posts">
 			<?php
-            // $event_date = get_field( 'block_event_date', false, false );
+            // $event_date = get_field( 'block_event_date_time', false, false );
             $today = date( 'Y-m-d' );
 			$args = array(
                 'post_type' => 'block_events',
-                'meta_key' => 'block_event_date',
+                'meta_key' => 'block_event_date_time',
                 'meta_query' => array(
-                    'key' => 'block_event_date',
+                    'key' => 'block_event_date_time',
                     'value' => $today,
                     'type' => 'date',
                     'compare' => '>='
                 ),
                 'orderby' => array(
-                    'block_event_date' => 'ASC'
+                    'block_event_date_time' => 'ASC'
                 ),
                 'posts_per_page' => -1,
             );
@@ -58,37 +58,43 @@ get_header(); ?>
                 endif;
 			?>
 			</section>
-			<section class="archive-time-list">
+			<?php 
+                $args = array(
+                    'post_type' => 'block_events',
+                    'meta_key' => 'block_event_date_time',
+                    'meta_query' => array(
+                        'key' => 'block_event_date_time',
+                        'value' => $today,
+                        'type' => 'date',
+                        'compare' => '<'
+                    ),
+                    'orderby' => array(
+                        'block_event_date_time' => 'DESC'
+                    ),
+                    'posts_per_page' => -1,
+                );
+                $block_event_query = new WP_Query( $args );
+                if ( $block_event_query->have_posts() ) :
+            ?>
+            <section class="archive-time-list">
                 <header class="archive-time-list-header">
                     <h2>Past Events</h2>
                 </header>
-                <ul class="list-unstyled"><?php 
-                    $args = array(
-                        'post_type' => 'block_events',
-                        'meta_key' => 'block_event_date',
-                        'meta_query' => array(
-                            'key' => 'block_event_date',
-                            'value' => $today,
-                            'type' => 'date',
-                            'compare' => '<'
-                        ),
-                        'orderby' => array(
-                            'block_event_date' => 'DESC'
-                        ),
-                        'posts_per_page' => -1,
-                    );
-                    $block_event_query = new WP_Query( $args );
-                    if ( $block_event_query->have_posts() ) :
-                        echo '<dl>';
-                        while ( $block_event_query->have_posts() ) :
-                            $block_event_query->the_post();
-                            ?>
-                            <dt><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></dt>
-                            <dd><?php the_field( 'block_event_date' ); ?></dd><?php
-                        endwhile;
-                    endif;
-                ?></ul>
+                <dl>
+                <?php
+                    while ( $block_event_query->have_posts() ) :
+                        $block_event_query->the_post();
+                ?>
+                        <dt><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></dt>
+                        <dd><?php the_field( 'block_event_date_time' ); ?></dd>
+                <?php
+                    endwhile;
+                ?>
+                </dl>
             </section>
+            <?php
+                endif;
+            ?>
         </div>
     </div>
 	<div class="main-footer-container container">

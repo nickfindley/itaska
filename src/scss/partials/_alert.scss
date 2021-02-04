@@ -12,6 +12,14 @@
     @include media-breakpoint-up(sm) {
         margin: $paragraph-margin-bottom -1rem;
     }
+
+    a {
+        border-bottom: 2px solid rgba($black, .875);
+
+        &:hover {
+            border-bottom: 2px solid $black;
+        }
+    }
 }
 
 .broadcast a {

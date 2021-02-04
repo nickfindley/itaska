@@ -102,6 +102,8 @@
 
                 & > li {
                     margin-bottom: .5rem;
+                    padding-left: .5rem;
+                    text-indent: -.5rem;
 
                     @include media-breakpoint-up(md) {
                         margin-bottom: 0;
@@ -315,6 +317,7 @@ span.new-in-town {
     font-size: .75rem;
     padding: .25rem .5rem .125rem;
     position: relative;
+    text-indent: 0;
     top: -2px;
 
     @include media-breakpoint-up(md) {

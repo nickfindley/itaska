@@ -8,8 +8,8 @@
  * @subpackage Itaska
  * @since 0.1
  */
-
-get_header(); ?>
+get_header();
+?>
 <main class="main-single" id="content">
     <article>
     <?php

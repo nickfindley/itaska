@@ -38,6 +38,14 @@ function dutchtown_enqueue_scripts()
     wp_register_script( 'bootstrap_bundle', get_template_directory_uri() . '/dist/js/main.js', false, '4.1.3', true );
     wp_enqueue_script( 'bootstrap_bundle' );
 
+    // wp_register_script( 'forminator', autoversion( '/wp-content/themes/itaska/dist/js/forminator.js' ) );
+    // wp_enqueue_script( 'forminator' );
+    // switch_to_blog( 1 );
+    // wp_localize_script( 'forminator', 'ajax_object', array(
+    //     'ajaxurl' => admin_url( 'admin-ajax.php' )
+    // ));
+    // restore_current_blog();
+
     // wp_deregister_script( 'underscore' );
     // wp_register_script( 'underscore', ABSPATH . '/wp-includes/js/underscore.min.js', false, '1.83', true );
     // wp_enqueue_script( 'underscore' );

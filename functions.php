@@ -45,14 +45,39 @@ require get_template_directory() . '/functions/acf/flora-block.php';
 require get_template_directory() . '/functions/acf/masonry-block.php';
 require get_template_directory() . '/functions/acf/member-card.php';
 require get_template_directory() . '/functions/acf/options.php';
-require get_template_directory() . '/functions/acf/poll.php';
 require get_template_directory() . '/functions/acf/quick-contact.php';
-
-require get_template_directory() . '/functions/polls/poll-cpt-taxonomy.php';
-require get_template_directory() . '/functions/polls/poll-fields-acf.php';
-require get_template_directory() . '/functions/polls/poll-form.php';
-require get_template_directory() . '/functions/polls/poll-results.php';
 
 if ( $blog_id == 1 ) :
     require get_template_directory() . '/functions/events-calendar.php';
+
+    require get_template_directory() . '/functions/acf/poll.php';
+    require get_template_directory() . '/functions/polls/poll-cpt-taxonomy.php';
+    require get_template_directory() . '/functions/polls/poll-fields-acf.php';
+    require get_template_directory() . '/functions/polls/poll-form.php';
+    require get_template_directory() . '/functions/polls/poll-results.php';
 endif;
+
+add_action( 'wp_print_styles', 'custom_acf_deregister_styles', 100 );
+function custom_acf_deregister_styles()
+{
+    if (! is_admin() )
+    {
+        wp_deregister_style( 'wp-admin' );
+    }
+}
+
+function dutchtown_create_post_reirect( $post_id )
+{
+    // if ( get_post_type( $post_id ) != 'block_events' || get_post_type( $post_id ) != 'post' ) :
+	// 	return;
+	// endif;
+    
+	if ( is_admin() ) :
+		return;
+	endif;
+    
+    wp_redirect( get_site_url() . '/edit?updated=true&postid=' . $post_id );
+    exit;
+}
+
+add_action( 'acf/save_post', 'dutchtown_create_post_reirect' );

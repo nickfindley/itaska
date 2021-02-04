@@ -23,7 +23,7 @@
     <?php endif; ?>
             <section class="item-meta">
                 <ul>
-                    <li><i class="fas fa-fw fa-calendar-alt"></i><a href="<?php the_permalink(); ?>"><?php the_field( 'block_event_date' ); ?><?php if ( get_field( 'block_event_time' ) ) : ?> at <?php the_field( 'block_event_time' ); endif; ?></a></li>
+                    <li><i class="fas fa-fw fa-calendar-alt"></i><a href="<?php the_permalink(); ?>"><?php the_field( 'block_event_date_time' ); ?></a></li>
                     <li><i class="fas fa-fw fa-map-marker-alt"></i><?php the_field( 'block_event_location' ); ?></li>
                 </ul>
                 <ul>
@@ -45,6 +45,13 @@
             <?php if ( dutchtown_is_updated() ) : ?>
             This post was last updated on <?php dutchtown_updated_on(); ?>.
             <?php endif; ?></p>
+            <?php
+                if ( current_user_can( 'edit_post', $post->ID ) ) :
+            ?>
+            <p><a href="<?php echo get_site_url(); ?>/edit?postid=<?php echo $post->ID; ?>">Edit this event</a> or <a href="<?php echo get_site_url(); ?>/create?posttype=block_events">add a new event</a>.</p>
+            <?php
+                endif;
+            ?>
         </footer>
     </div>
 </article>
