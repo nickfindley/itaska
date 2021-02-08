@@ -25,7 +25,7 @@ function dutchtown_enqueue_scripts()
         wp_enqueue_style( 'calendar', get_template_directory_uri() . '/dist/css/calendar.min.css' );
     endif;
 
-    if ( is_front_page() || is_page_template( 'page-masonry.php' ) || is_archive( 'places' ) ) :
+    if ( is_front_page() || is_page_template( 'page-masonry.php' ) || is_archive( 'places' ) || is_single( 'black-owned' ) ) :
         wp_register_script( 'masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js', false, '4.2.2', true );
 
         wp_register_script( 'dutchtown_masonry_scripts', get_template_directory_uri() . '/dist/js/masonry.min.js', false, '1.0', true );

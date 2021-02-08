@@ -2,17 +2,18 @@
 if ( function_exists( 'acf_register_block_type' ) ) :
     function dutchtown_acf_init_callout_box()
     {
-        acf_register_block_type(array(
+        acf_register_block_type( array(
                 'name'              => 'dutchtown_callout_box',
                 'title'             => __('Dutchtown Callout Box'),
-                'description'       => __('At box to display prominent info.'),
+                'description'       => __('A box to display prominent info.'),
                 'render_template'   => 'blocks/block-callout-box.php',
                 'category'          => 'formatting',
                 'icon'              => 'block',
                 'keywords'          => array( 'callout', 'box', 'dutchtown' ),
                 'supports'          => array ('align' => true ),
                 'mode'              => 'edit'
-            ));
+            )
+        );
     }
     add_action( 'acf/init', 'dutchtown_acf_init_callout_box' );
 endif;

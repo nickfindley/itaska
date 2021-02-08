@@ -37,6 +37,10 @@ p#disclaimer {
     z-index: -1;
 }
 
+p#disclaimer {
+    z-index: 1;
+}
+
 a[href="#toc"] {
     border-bottom-width: 1px;
 }

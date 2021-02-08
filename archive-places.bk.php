@@ -105,11 +105,6 @@ get_header(); ?>
                                 'key' => 'closed',
                                 'value' => 0,
                                 'compare' => '=='
-                            ),
-                            array(
-                                'key' => 'black_owned',
-                                'value' => 1,
-                                'compare' => '=='
                             )
                         ),
                         'orderby' => 'post_title',
@@ -149,11 +144,6 @@ get_header(); ?>
                             array(
                                 'key' => 'closed',
                                 'value' => 0,
-                                'compare' => '=='
-                            ),
-                            array(
-                                'key' => 'black_owned',
-                                'value' => 1,
                                 'compare' => '=='
                             )
                         ),

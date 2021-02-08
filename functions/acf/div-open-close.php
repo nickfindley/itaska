@@ -29,7 +29,7 @@ if ( function_exists( 'acf_register_block_type' ) ) :
     add_action('acf/init', 'dutchtown_acf_init_div_open_close');
 endif;
 
-if( function_exists('acf_add_local_field_group') ):
+if( function_exists( 'acf_add_local_field_group' ) ):
     acf_add_local_field_group(array(
         'key' => 'group_5fa3e00373bd8',
         'title' => 'Div Open Fields',

@@ -2,7 +2,7 @@
 if ( function_exists( 'acf_register_block_type' ) ) :
     function dutchtown_acf_init_quick_contact()
     {
-        acf_register_block_type(array(
+        acf_register_block_type( array(
                 'name'              => 'dutchtown_quick_contact',
                 'title'             => __('Dutchtown Quick Contact'),
                 'description'       => __('At a glance contact info.'),
@@ -12,7 +12,8 @@ if ( function_exists( 'acf_register_block_type' ) ) :
                 'keywords'          => array( 'contact', 'dutchtown' ),
                 'supports'          => array ('align' => false ),
                 'mode'              => 'edit'
-            ));
+            )
+        );
     }
     add_action( 'acf/init', 'dutchtown_acf_init_quick_contact' );
 endif;

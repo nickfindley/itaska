@@ -1,6 +1,7 @@
 <?php
 /**
- * The template for displaying all places
+ * Template Name: Black Owned Places
+ * Archive of all places listed as Black Owned.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -11,54 +12,48 @@
 
 get_header(); ?>
 <main class="main-single-place" id="content">
-    <?php
-        if ( get_field( 'places_page_image' , 'option' ) ) :
-    ?>
+    <?php if ( has_post_thumbnail() ) : ?>
     <header class="main-header main-has-featured-image">
         <div class="main-header-image-container container">
             <div class="main-header-image">
-                <?php echo wp_get_attachment_image( get_field( 'places_page_image', 'option' ), 'full' ); ?>
+                <?php the_post_thumbnail( 'xl', ['class' => 'no-lazyload'] ); ?>
             </div>
         </div>
         <div class="main-header-container container">
-            <h1><a href="/places/">
-            <?php
-                if ( get_field( 'places_page_pre_title', 'option' ) ) :
-            ?>
-                <span class="pre-header-title"><?php the_field( 'places_page_pre_title', 'option' ); ?></span>
-            <?php
-                endif;
-                the_field( 'places_page_title', 'option' );
-                if ( get_field( 'places_page_post_title', 'option' ) ) :
-            ?>
-                <span class="post-header-title"><?php the_field( 'places_page_post_title', 'option' ); ?></span>
-            <?php
-                endif;
-            ?>
+            <h1><a href="<?php the_permalink(); ?>">
+                <?php
+                    if ( get_field( 'places_page_pre_title', 'option' ) ) :
+                ?>
+                    <span class="pre-header-title"><?php the_field( 'places_page_pre_title', 'option' ); ?></span>
+                <?php
+                    endif;
+                    the_title();
+                    if ( get_field( 'places_page_post_title', 'option' ) ) :
+                ?>
+                    <span class="post-header-title"><?php the_field( 'places_page_post_title', 'option' ); ?></span>
+                <?php
+                    endif;
+                ?>
             </a></h1>
-    <?php
-        else :
-    ?>
+    <?php else : ?>
     <header class="main-header">
         <div class="main-header-container container">
-            <h1><a href="/places/">
-            <?php
-                if ( get_field( 'places_page_pre_title', 'option' ) ) :
-            ?>
-                <span class="pre-header-title"><?php the_field( 'places_page_pre_title', 'option' ); ?></span>
-            <?php
-                endif;
-                the_field( 'places_page_title', 'option' );
-                if ( get_field( 'places_page_post_title', 'option' ) ) :
-            ?>
-                <span class="post-header-title"><?php the_field( 'places_page_post_title', 'option' ); ?></span>
-            <?php
-                endif;
-            ?>
+            <h1><a href="<?php the_permalink(); ?>">
+                <?php
+                    if ( get_field( 'places_page_pre_title', 'option' ) ) :
+                ?>
+                    <span class="pre-header-title"><?php the_field( 'places_page_pre_title', 'option' ); ?></span>
+                <?php
+                    endif;
+                    the_title();
+                    if ( get_field( 'places_page_post_title', 'option' ) ) :
+                ?>
+                    <span class="post-header-title"><?php the_field( 'places_page_post_title', 'option' ); ?></span>
+                <?php
+                    endif;
+                ?>
             </a></h1>
-    <?php
-        endif;
-    ?>
+    <?php endif; ?>
             <section class="main-meta">
                 <ul>
                     <?php dutchtown_header_social_links(); ?>
@@ -69,13 +64,14 @@ get_header(); ?>
     <div class="places-container container places-new">
         
         <?php
-            if ( get_field( 'places_page_content', 'option' ) ) :
+            // if ( get_field( 'places_page_content', 'option' ) ) :
         ?>
         <section class="places-content">
-            <?php the_field( 'places_page_content', 'option' ); ?>
+            <!-- <?php the_field( 'places_page_content', 'option' ); ?> -->
+            <?php the_content(); ?>
         </section>
         <?php  
-            endif;
+            // endif;
         ?>
 
         <section class="places-list" id="places-list">
